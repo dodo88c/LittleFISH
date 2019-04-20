@@ -7,9 +7,9 @@
 
 
 void init(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){ //initialise le plateau
-	
+
     for(int i=1;i<21;i++){
-    
+
         pionW[i]=i;
         pionB[i]=51-i;
 
@@ -23,14 +23,14 @@ void init(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){ //initial
 
 char Joueur(int pionW[20], int pionB[20] , int caseD){ //Donne l'équipe
 	for(int i=1;i<21;i++){
-		if(caseD==pionB[i]){	
+		if(caseD==pionB[i]){
 			return B; //équipe noire
-		}		
-		if(caseD==pionW[i]){
-	
-			return W; //équipe blanche 
 		}
-	
+		if(caseD==pionW[i]){
+
+			return W; //équipe blanche
+		}
+
 	}
 }
 
@@ -41,7 +41,7 @@ void VerifP(int pionW[20], int pionB[20] , int caseD){ //vérifie la case la plu
 	Joueur(pionW[],pionB[],caseD);
 
 	int a=0;
-	
+
 	if(Joueur=='B'){
 		if (caseD==6||caseD==16||caseD==26||caseD==36||caseD==46||caseD==47||caseD==48||caseD==49||caseD==50){
 			a=1;
@@ -52,7 +52,7 @@ void VerifP(int pionW[20], int pionB[20] , int caseD){ //vérifie la case la plu
 			}
 			else
 				return True; //retourne case libre
-			
+
 		}
 
 	}
@@ -66,11 +66,11 @@ void VerifP(int pionW[20], int pionB[20] , int caseD){ //vérifie la case la plu
 			}
 			else
 				return True; //retourne case libre
-			
+
 		}
 
 	}
-	
+
 }
 
 
@@ -79,8 +79,8 @@ void VerifP(int pionW[20], int pionB[20] , int caseD){ //vérifie la case la plu
 void VerifG(int pionW[20], int pionB[20] , int caseD){ //vérifie la case la plus grande(droite)
 	if
 		return True; //retourne case libre
-	esle	
-		return False; //case ocupée 
+	esle
+		return False; //case ocupée
 }
 
 
@@ -93,12 +93,7 @@ void VerifG(int pionW[20], int pionB[20] , int caseD){ //vérifie la case la plu
 
 
 int depl(int pionW[20], int pionB[20] , int caseD){
-	rand	
+	rand
 
 	return caseA; //retourne case d'arrivé
 }
-
-
-
-
-

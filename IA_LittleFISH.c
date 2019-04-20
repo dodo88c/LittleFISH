@@ -13,7 +13,7 @@ int main(){
 
 	int kingW[20]; //initialisation des reines blanche
 	int kingB[20]; //noir
-	
+
 
 }
 
