@@ -38,10 +38,10 @@ int main(){
 // ici toute les configurations d'equipes sont faite.
 // declaration de toute les positions de pions:
 
-            for(int ya=0, ya < k, ya++ ){              // boucle nombre pion king W
-              for(int yb=0, ya < l, ya++ ){              // boucle nombre pion king B
-                for(int yc=0, ya < i, ya++ ){              // boucle nombre pion pion W
-                  for(int yd=0, ya < j, ya++ ){              // boucle nombre pion pion B
+            for(int ya=1, ya <= k, ya++ ){              // boucle nombre pion king W
+              for(int yb=1, ya <= l, ya++ ){              // boucle nombre pion king B
+                for(int yc=1, ya <= i, ya++ ){              // boucle nombre pion pion W
+                  for(int yd=1, ya <= j, ya++ ){              // boucle nombre pion pion B
 
                     for( int za=1, za<51, za++){              // boucle plateau king W
                         for( int zb=1, zb<51, zb++){              // boucle plateau king B
@@ -51,10 +51,10 @@ int main(){
                                     if( za=zb || za=zc || za==zd || zb==zc || zb==zd || zc==zd ) {  NULL }      // passe si deux pions sont sur la meme case
                                     else{
 
-                                        if(k > 0){ kingW[k]=za; }
-                                        if(l > 0){ kingB[l]=zb; }
-                                        if(i > 0){ pionW[i]=zc; }
-                                        if(j > 0){ pionB[j]=zd; }
+                                        if(k > 0){ kingW[ya]=za; }
+                                        if(l > 0){ kingB[yb]=zb; }
+                                        if(i > 0){ pionW[yc]=zc; }
+                                        if(j > 0){ pionB[yd]=zd; }
 
                                         int pionW_next[20]; //initialisation des pions blanc SUIVANT
                                         int pionB_next[20]; //noir SUIVANT
