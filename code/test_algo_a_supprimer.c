@@ -59,11 +59,29 @@ pour 5 pion:
           for (int i=1, i<51, i++)
 
 
-pour n pion:      ex:7
 
 
-int tab[n-1]            tab[0],tab[1],tab[2],tab[3],tab[4],tab[5],tab[6]
 
-  for(int j=j, j<n, j++)
-    for (int i=1, i<51, i++)
-tab[j]=i;
+pour n pion:
+
+
+
+                int compteur[n-1]            tab[0],tab[1],tab[2],tab[3],tab[4],tab[5],tab[6]     // tableau compteur kilometrique
+
+                for(int ta=0 , ta < n , ta++)
+                    compteur[ta]= ta+1
+
+
+
+                while( compteur[0] != 51 )                                                       // tant que toutes le cases n'ont pas été parcourue
+
+                            for(int tb=(n-1) , tb >= 0 , tb--)
+                              if(compteur[tb]=51){ compteur[tb]=1;  compteur[tb-1]++; }
+
+
+                              // tri croissant dans le tableau
+                              // test si deux valeurs voisines sont identiques
+
+                                //instruction
+
+                  compteur[n-1]++;
