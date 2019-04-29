@@ -4,14 +4,12 @@
 
 toute les positions doivent etres parcourue
 
-
 à analyser:
   Pour en revenir à ta question, pour simuler dynamiquement n boucles,
  il te faut un tableau de n cases.
  La ième case contiendra la valeur de l'indice de la ième boucle.
  Passer «au tour suivant» consistera donc à incrémenter ces valeurs en commençant par la fin.
  Le principe de base est celui d'un odomètre en fait.
-
 
 ou alors:
 fonction parcourir(tableau à n dimensions)

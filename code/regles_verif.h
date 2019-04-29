@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 
 #include <stdlib.h>
@@ -6,7 +7,7 @@
 
 
 
-void init(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){ //initialise le plateau
+void init(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){ //initialise le plateau avec les pions
 
     for(int i=1;i<21;i++){
 
