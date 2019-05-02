@@ -25,7 +25,7 @@ fonction parcourir(tableau à n dimensions)
 je rajoutte des fonction test pour voir si
 sa marche
 sa fonctionne
-
+bonjour Oriane
 
 
 
