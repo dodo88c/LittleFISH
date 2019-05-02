@@ -40,7 +40,7 @@ char Joueur(int pionW[20], int pionB[20] , int caseD){ //Donne l'équipe
 
 void VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD){ //vérifie la case la plus petite(gauche)
 	Joueur(pionW[],pionB[],caseD);
-	
+
 	int a=0;
 
 	if(Joueur=='B'){
@@ -52,12 +52,12 @@ void VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 				if(caseD%10<=5){
 				if(caseD+5==pionW[i] || caseD+5==pionB[i]||caseD+5==kingW[i] || caseD+5==kingB[i]){
 					a=1; //case ocupée
-				}			
+				}
 				}
 				if(caseD%10>5){
 				if(caseD+4==pionW[i] || caseD+4==pionB[i]||caseD+4==kingW[i] || caseD+4==kingB[i]){
 					a=1; //case ocupée
-				}			
+				}
 				}
 			}
 		}
@@ -72,12 +72,12 @@ void VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 				if(caseD%10<=5){
 				if(caseD-5==pionW[i] || caseD-5==pionB[i]||caseD-5==kingW[i] || caseD-5==kingB[i]){
 					a=1; //case ocupée
-				}			
+				}
 				}
 				if(caseD%10>5){
 				if(caseD-6==pionW[i] || caseD-6==pionB[i]||caseD-6==kingW[i] || caseD-6==kingB[i]){
 					a=1; //case ocupée
-				}			
+				}
 				}
 			}
 		}
@@ -85,7 +85,7 @@ void VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 	}
 	if(a=1){
 		return False;
-	
+
 	}
 	else
 		return True;
@@ -95,7 +95,7 @@ void VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 
 void VerifPionGrand(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD){ //vérifie la case la plus grande(droite)
 	Joueur(pionW[],pionB[],caseD);
-	
+
 	int a=0;
 
 	if(Joueur=='B'){
@@ -107,12 +107,12 @@ void VerifPionGrand(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 				if(caseD%10<=5){
 				if(caseD+6==pionW[i] || caseD+6==pionB[i]||caseD+6==kingW[i] || caseD+6==kingB[i]){
 					a=1; //case ocupée
-				}			
+				}
 				}
 				if(caseD%10>5){
 				if(caseD+5==pionW[i] || caseD+5==pionB[i]||caseD+5==kingW[i] || caseD+5==kingB[i]){
 					a=1; //case ocupée
-				}			
+				}
 				}
 			}
 		}
@@ -127,12 +127,12 @@ void VerifPionGrand(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 				if(caseD%10<=5){
 				if(caseD-4==pionW[i] || caseD-4==pionB[i]||caseD-4==kingW[i] || caseD-4==kingB[i]){
 					a=1; //case ocupée
-				}			
+				}
 				}
 				if(caseD%10>5){
 				if(caseD-5==pionW[i] || caseD-5==pionB[i]||caseD-5==kingW[i] || caseD-5==kingB[i]){
 					a=1; //case ocupée
-				}			
+				}
 				}
 			}
 		}
@@ -140,15 +140,27 @@ void VerifPionGrand(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 	}
 	if(a=1){
 		return False;
-	
+
 	}
 	else
 		return True;
 }
 
 void VerifKing(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int caseD){ //vérifie la case d'arrivée de la reine
-	
+
 	int a=0;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	if(a=1){
@@ -158,6 +170,22 @@ void VerifKing(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int c
 		return True;
 }
 
+
+void conversion_plateau(int pion_dep[21], int pion_arr_X[11], int pion_arr_Y[11]){ // convertit le plateau en 10*10 pour un groupe de pion
+
+    for(int i=1;i<21;i++){
+
+        if( pion_dep[i]==0){
+            pion_arr_X[i]
+
+        }
+
+
+
+
+
+
+}
 
 
 
