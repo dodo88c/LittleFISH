@@ -38,22 +38,28 @@ char Joueur(int pionW[20], int pionB[20] , int caseD){ //Donne l'équipe
 
 
 
-void VerifP(int pionW[20], int pionB[20] , int caseD){ //vérifie la case la plus petite(gauche)
+void VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD){ //vérifie la case la plus petite(gauche)
 	Joueur(pionW[],pionB[],caseD);
-
+	
 	int a=0;
 
 	if(Joueur=='B'){
 		if (caseD==6||caseD==16||caseD==26||caseD==36||caseD==46||caseD==47||caseD==48||caseD==49||caseD==50){
 			a=1;
 		}
-		for(int i=1;i<21;i++){
-			if(caseD+4==pionW[i] || caseD+4==pionB[i] || a=1){
-				return False; //case ocupée
+		if(a=0){
+			for(int i=1;i<21;i++){
+				if(caseD%10<=5){
+				if(caseD+5==pionW[i] || caseD+5==pionB[i]||caseD+5==kingW[i] || caseD+5==kingB[i]){
+					a=1; //case ocupée
+				}			
+				}
+				if(caseD%10>5){
+				if(caseD+4==pionW[i] || caseD+4==pionB[i]||caseD+4==kingW[i] || caseD+4==kingB[i]){
+					a=1; //case ocupée
+				}			
+				}
 			}
-			else
-				return True; //retourne case libre
-
 		}
 
 	}
@@ -61,29 +67,96 @@ void VerifP(int pionW[20], int pionB[20] , int caseD){ //vérifie la case la plu
 		if (caseD==5||caseD==15||caseD==25||caseD==35||caseD==45||caseD==1||caseD==2||caseD==3||caseD==4){
 			a=1;
 		}
-		for(int i=1;i<21;i++){
-			if(caseD+4==pionW[i] || caseD+4==pionB[i] || a=1){
-				return False; //case ocupée
+		if(a=0){
+			for(int i=1;i<21;i++){
+				if(caseD%10<=5){
+				if(caseD-5==pionW[i] || caseD-5==pionB[i]||caseD-5==kingW[i] || caseD-5==kingB[i]){
+					a=1; //case ocupée
+				}			
+				}
+				if(caseD%10>5){
+				if(caseD-6==pionW[i] || caseD-6==pionB[i]||caseD-6==kingW[i] || caseD-6==kingB[i]){
+					a=1; //case ocupée
+				}			
+				}
 			}
-			else
-				return True; //retourne case libre
-
 		}
 
 	}
-
+	if(a=1){
+		return False;
+	
+	}
+	else
+		return True;
 }
 
 
 
+void VerifPionGrand(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD){ //vérifie la case la plus grande(droite)
+	Joueur(pionW[],pionB[],caseD);
+	
+	int a=0;
 
-void VerifG(int pionW[20], int pionB[20] , int caseD){ //vérifie la case la plus grande(droite)
-	if
-		return True; //retourne case libre
-	esle
-		return False; //case ocupée
+	if(Joueur=='B'){
+		if (caseD==5||caseD==15||caseD==25||caseD==35||caseD==45||caseD==46||caseD==47||caseD==48||caseD==49||caseD==50){
+			a=1;
+		}
+		if(a=0){
+			for(int i=1;i<21;i++){
+				if(caseD%10<=5){
+				if(caseD+6==pionW[i] || caseD+6==pionB[i]||caseD+6==kingW[i] || caseD+6==kingB[i]){
+					a=1; //case ocupée
+				}			
+				}
+				if(caseD%10>5){
+				if(caseD+5==pionW[i] || caseD+5==pionB[i]||caseD+5==kingW[i] || caseD+5==kingB[i]){
+					a=1; //case ocupée
+				}			
+				}
+			}
+		}
+
+	}
+	if(Joueur=='W'){
+		if (caseD==6||caseD==16||caseD==26||caseD==36||caseD==46||caseD==1||caseD==2||caseD==3||caseD==4||caseD==5){
+			a=1;
+		}
+		if(a=0){
+			for(int i=1;i<21;i++){
+				if(caseD%10<=5){
+				if(caseD-4==pionW[i] || caseD-4==pionB[i]||caseD-4==kingW[i] || caseD-4==kingB[i]){
+					a=1; //case ocupée
+				}			
+				}
+				if(caseD%10>5){
+				if(caseD-5==pionW[i] || caseD-5==pionB[i]||caseD-5==kingW[i] || caseD-5==kingB[i]){
+					a=1; //case ocupée
+				}			
+				}
+			}
+		}
+
+	}
+	if(a=1){
+		return False;
+	
+	}
+	else
+		return True;
 }
 
+void VerifKing(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int caseD){ //vérifie la case d'arrivée de la reine
+	
+	int a=0;
+
+
+	if(a=1){
+		return False;
+	}
+	else
+		return True;
+}
 
 
 

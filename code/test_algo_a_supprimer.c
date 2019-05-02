@@ -26,8 +26,12 @@ je rajoutte des fonction test pour voir si
 sa marche
 sa fonctionne
 bonjour Oriane
+<<<<<<< HEAD
+=======
 
+>>>>>>> VERSION-1.0
 
+Poubelle
 
 
 pour 2 pion:
