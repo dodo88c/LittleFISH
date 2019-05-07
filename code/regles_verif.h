@@ -1,6 +1,6 @@
 
 #include <stdio.h>
-
+#include <stdbool.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -25,11 +25,11 @@ void init(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){ //initial
 char Joueur(int pionW[20], int pionB[20] , int caseD){ //Donne l'équipe
 	for(int i=1;i<21;i++){
 		if(caseD==pionB[i]){
-			return B; //équipe noire
+			return 'B'; //équipe noire
 		}
 		if(caseD==pionW[i]){
 
-			return W; //équipe blanche
+			return 'W'; //équipe blanche
 		}
 
 	}
@@ -38,8 +38,8 @@ char Joueur(int pionW[20], int pionB[20] , int caseD){ //Donne l'équipe
 
 
 
-void VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD){ //vérifie la case la plus petite(gauche)
-	Joueur(pionW[],pionB[],caseD);
+bool VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD){ //vérifie la case la plus petite(gauche)
+	Joueur(pionW[20],pionB[20],caseD);
 
 	int a=0;
 
@@ -84,17 +84,17 @@ void VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 
 	}
 	if(a=1){
-		return False;
+		return false;
 
 	}
 	else
-		return True;
+		return true;
 }
 
 
 
 void VerifPionGrand(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD){ //vérifie la case la plus grande(droite)
-	Joueur(pionW[],pionB[],caseD);
+	Joueur(pionW[20],pionB[20],caseD);
 
 	int a=0;
 
@@ -139,11 +139,11 @@ void VerifPionGrand(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 
 	}
 	if(a=1){
-		return False;
+		return false;
 
 	}
 	else
-		return True;
+		return true;
 }
 
 void VerifKing(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int caseD){ //vérifie la case d'arrivée de la reine
@@ -164,10 +164,10 @@ void VerifKing(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int c
 
 
 	if(a=1){
-		return False;
+		return false;
 	}
 	else
-		return True;
+		return true;
 }
 
 
@@ -185,26 +185,14 @@ void conversion_plateau(int pion_dep[21], int pion_arr_X[11], int pion_arr_Y[11]
 
             if(pion_dep[i]%10<=5){
                 if(pion_dep[i]%5==0){pion_arr_X[i]= 10;}
-                else{ pion_arr_X[i]= ((pion_dep[i]%5)*2;}
+                else{ pion_arr_X[i]= ((pion_dep[i]%5)*2);}
                     // donne la colonne
             }
             if(pion_dep[i]%10>5){
                 if(pion_dep[i]%5==0){pion_arr_X[i]= 9;}
-                else{ pion_arr_X[i]= ((pion_dep[i]%5 )*2-1;}
+                else{ pion_arr_X[i]= ((pion_dep[i]%5 )*2-1);}
                     // donne la colonne
             }
         }
     }
-}
-
-
-
-
-
-
-
-int depl(int pionW[20], int pionB[20] , int caseD){
-	rand
-
-	return caseA; //retourne case d'arrivé
 }

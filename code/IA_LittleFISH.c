@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "regles_verif";
+#include "regles_verif.h"
 #include <stdlib.h>
 #include <time.h>
 
@@ -19,6 +19,3 @@ int main(){
 
 
 }
-
-
-testetzt
