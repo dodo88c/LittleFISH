@@ -4,7 +4,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-
+#include <stdlib.h>
+#include <stdio.h>
 
 
 void init(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){ //initialise le plateau avec les pions
@@ -16,6 +17,8 @@ void init(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){ //initial
 
         kingW[i]=0;
         kingB[i]=0;
+
+
     }
 }
 
