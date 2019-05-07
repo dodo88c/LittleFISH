@@ -10,11 +10,11 @@ int main(){
 
     int n=0; i=0, j=0, k=0, l=0;
 
-    printf("entrer le degré de la base à generer");                               // demande la valeur de la table à remplir
+    printf("entrer le nombre de pion de la table de la base endgame à generer");                               // demande la valeur de la table à remplir
     scanf(n);
 
-    while(a==0 || a==1 || a>20){
-        printf("entrer le degré de la base à generer, entre 2 et 20");
+    while(a<=0 || a==1 || a>20){
+        printf("entrer le nombre de pion de la table de la base à generer, entre 2 et 20");
         scanf(n);                                                                 //                                       exemple: 5
     }
 
