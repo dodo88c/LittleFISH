@@ -6,17 +6,17 @@ void affichage(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){
 	char grille[50];
 	for(carreau=1;carreau<51;carreau++){
 		for(place=1;place<21;place++){
-		if(place==pionB[place]){
+		if(carreau==pionB[place]){
 			 grille[carreau]='B'; //pion noir sur la case
 		}
-		if(caseD==pionW[i]){
+		if(carreau==pionW[place]){
 
 			grille[carreau]='W'; //pion blanc sur la case
 		}
-		if(caseD==kingB[i]){
+		if(carreau==kingB[place]){
 			grille[carreau]='N'; //reine noire sur la case
 		}
-		if(caseD==kingW[i]){
+		if(carreau==kingW[place]){
 
 			grille[carreau]='D'; //reine blanche sur la case
 		}
