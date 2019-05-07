@@ -1,0 +1,26 @@
+Ce fichier comprend toute les fonctions écrites et leurs emplacement:
+
+
+
+
+
+
+regles_verif:
+
+    void init(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){
+        //initialise le plateau avec les pions
+
+    char Joueur(int pionW[20], int pionB[20] , int caseD){
+        //Donne l'équipe du pion de caseD
+
+    void VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD){
+        //vérifie la case la plus petite(gauche)
+
+    void VerifPionGrand(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD){
+        //vérifie la case la plus grande(droite)
+
+    void VerifKing(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int caseD){
+        //vérifie la case d'arrivée de la reine
+
+    void conversion_plateau(int pion_dep[21], int pion_arr_X[11], int pion_arr_Y[11]){
+        // convertit le plateau en 10*10 pour un groupe de pion
