@@ -173,20 +173,29 @@ void VerifKing(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int c
 
 void conversion_plateau(int pion_dep[21], int pion_arr_X[11], int pion_arr_Y[11]){ // convertit le plateau en 10*10 pour un groupe de pion
 
+// Y = position verticale, X = position horizontale
+
     for(int i=1;i<21;i++){
-
         if( pion_dep[i]==0){
-            pion_arr_X[i]
-
+            pion_arr_X[i]=0;
+            pion_arr_Y[i]=0;
         }
+        else{
+            pion_arr_Y[i]= (pion_dep[i]/5 +1); // donne la ligne
 
-
-
-
-
-
+            if(pion_dep[i]%10<=5){
+                if(pion_dep[i]%5==0){pion_arr_X[i]= 10;}
+                else{ pion_arr_X[i]= ((pion_dep[i]%5)*2;}
+                    // donne la colonne
+            }
+            if(pion_dep[i]%10>5){
+                if(pion_dep[i]%5==0){pion_arr_X[i]= 9;}
+                else{ pion_arr_X[i]= ((pion_dep[i]%5 )*2-1;}
+                    // donne la colonne
+            }
+        }
+    }
 }
-
 
 
 
