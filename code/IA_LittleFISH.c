@@ -16,7 +16,7 @@ int main(){
 
 	int kingW[20]; //initialisation des reines blanche
 	int kingB[20]; //noir
-	int init,noir=1,blanc=50;	
+	int init,noir=1,blanc=50;
 	for(init=1;init<21;init++){ //initialisation de la partie
 		kingW[init]=0;
 		kingB[init]=0;
@@ -25,7 +25,7 @@ int main(){
 		blanc--;
 		noir++;
 	}
-	affichage(pionW[],pionB[],kingW[],kingB[]); //affichage grille
+
 
 printf("test 1 \n");
 printf("test 2, %i", pionW[6]);
