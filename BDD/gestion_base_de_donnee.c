@@ -25,11 +25,17 @@ sic'>
 
 
 
-#include <dos.h>
-#include <io.h>
+//#include <dos.h>
+//#include <io.h>
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <stdlib.h>
+
+
 
 #define O_CREAT  0x0100
 #define O_TRUNC  0x0200
@@ -47,13 +53,16 @@ short nf;
 ulong nart;
 ushort RCS;
 #define NB_CHAMPS 11
+
+
 struct BASE
 {
    uchar nom_champ[11];
    uchar typ_champ;
    uchar long_champ;
    uchar nb_dec;
-} strbase[NB_CHAMPS]=
+}
+strbase[NB_CHAMPS]=
 {
    "COD_SOC"    ,'N', 4,0,
    "NOM_SOC"    ,'C',40,0,
@@ -67,6 +76,8 @@ struct BASE
    "IMPOT"      ,'N',14,3,
    "RESTE"      ,'N',14,3
 };
+
+
 struct ENTET_BASE
 {
    uchar  version;
@@ -87,19 +98,23 @@ struct ENTET_BASE
       uchar zero[14];
    } champ[NB_CHAMPS];
 } aa;
+
+
 uchar dbf[2048];
 uchar man[100];
-struct date d;
+//struct date d[2048];
 ushort i;
 ulong salaire,impot,reste,nb_inreg;
 
+
+
 void main(void)
 {
-   getdate(&d);
-   aa.version=3;
-   aa.annee=d.da_year-1900;
-   aa.mois=d.da_mon;
-   aa.jour=d.da_day;
+  // getdate(&d);
+   //aa.version=3;
+   //aa.annee=d.da_year-1900;
+   //aa.mois=d.da_mon;
+   //aa.jour=d.da_day;
    aa.nb_art=0;
    aa.lg_antet=0;
    aa.RCS=1;
@@ -116,11 +131,11 @@ void main(void)
    }
    RCS=aa.RCS;
    aa.lg_antet=(NB_CHAMPS+1)*32+1;
-   if((nf=open(nom_dbf,O_CREAT|O_BINARY|O_TRUNC|O_RDWR,S_IWRITE|S_IREAD))<1)
+  /* if((nf=open(nom_dbf,O_CREAT|O_BINARY|O_TRUNC|O_RDWR,S_IWRITE|S_IREAD))<1)
    {
       printf("\nErreur dans la creation du fichier %s.",nom_dbf);
       return;
-   }
+  }*/
    RCS=aa.lg_antet;
    write(nf,&aa,RCS-1);
    man[0]=0x0D;
