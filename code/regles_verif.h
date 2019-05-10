@@ -220,5 +220,126 @@ int nb_pion(int pion[20],int king[20]){
 	return nb;
 }
 
+void manger_pion(int pionW[20], int pionB[20],int kingW[20], int kingB[20], int caseD){ // verifie si un pion peut en manger un autre
+	int a=1;
+	VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD);
+	VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD);
+	Joueur(pionW[20],pionB[20],caseD);
+//a=1: le pion peut manger sur la case la plus petite , a=2: le pion peut manger sur la case la plus grande, a=3:le pion peut manger sur les deux case
+	if(VerifPionPetit==false||VerifPionGrand==true){
+	  for(i=1;i<21;i++){
+	    if(caseD%10<=5){
+	    if(Joueur==B&&(caseD+5==pionW[i]||caseD+5==kingW[i])){
+		VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD+5);
+		if(VerifPionPetit==true){
+		a=1;}
+	    }
+	    else if(Joueur==W&&(caseD-5==pionB[i]||caseD-5==kingB[i])){
+		VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD-5);
+		if(VerifPionPetit==true){
+		a=1;}
+	    }
+	    }
+	    if(caseD%10>5){
+	    if(Joueur==B&&(caseD+4==pionW[i]||caseD+4==kingW[i])){
+		VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD+4);
+		if(VerifPionPetit==true){
+		a=1;}
+	    }
+	    else if(Joueur==W&&(caseD-6==pionB[i]||caseD-6==kingB[i])){
+		VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD-6);
+		if(VerifPionPetit==true){
+		a=1;}
+	    }
+  	    }
+	  }	
+	}
+	else if(VerifPionPetit==true||VerifPionGrand==false){
+	  for(i=1;i<21;i++){
+	    if(caseD%10<=5){
+	    if(Joueur==B&&(caseD+6==pionW[i]||caseD+6==kingW[i])){
+		VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD+6);
+		if(VerifPionGrand==true){
+		a=2;}
+	    }
+	    else if(Joueur==W&&(caseD-4==pionB[i]||caseD-4==kingB[i])){
+		VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD-4);
+		if(VerifPionGrand==true){
+		a=2;}
+	    }
+	    }
+	    if(caseD%10>5){
+	    if(Joueur==B&&(caseD+5==pionW[i]||caseD+5==kingW[i])){
+		VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD+5);
+		if(VerifPionGrand==true){
+		a=2;}
+	    }
+	    else if(Joueur==W&&(caseD-5==pionB[i]||caseD-5==kingB[i])){
+		VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD-5);
+		if(VerifPionGrand==true){
+		a=2;}
+	    }
+  	    }
+	  }
+	}
+	else if(VerifPionPetit==false&&VerifPionGrand==false){
+	 for(i=1;i<21;i++){
+	    if(caseD%10<=5){
+	    if // cas a=3 pas fini
+
+	    else if(Joueur==B&&(caseD+5==pionW[i]||caseD+5==kingW[i])&&){
+		VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD+5);
+		if(VerifPionPetit==true){
+		a=1;}
+	    }
+	    else if(Joueur==W&&(caseD-5==pionB[i]||caseD-5==kingB[i])&&){
+		VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD-5);
+		if(VerifPionPetit==true){
+		a=1;}
+	    }
+	    else if(Joueur==B&&(caseD+6==pionW[i]||caseD+6==kingW[i])&&){
+		VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD+6);
+		if(VerifPionGrand==true){
+		a=2;}
+	    }
+	    else if(Joueur==W&&(caseD-4==pionB[i]||caseD-4==kingB[i])&&){
+		VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD-4);
+		if(VerifPionGrand==true){
+		a=2;}
+	    }
+	    }
+	    if(caseD%10>5){
+	    if(Joueur==B&&(caseD+4==pionW[i]||caseD+4==kingW[i])&&(caseD+5==pionW[i]||caseD+5==kingW[i])){
+		a=3;
+	    }
+	    else if(Joueur==W&&(caseD-6==pionB[i]||caseD-6==kingB[i])&&(caseD-5==pionB[i]||caseD-5==kingB[i])){
+		a=3;
+	    }
+	    else if(Joueur==B&&(caseD+4==pionW[i]||caseD+4==kingW[i])&&(caseD+5!=pionW[i]||caseD+5!=kingW[i])){
+		VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD+4);
+		if(VerifPionPetit==true){
+		a=1;}
+	    }
+	    else if(Joueur==W&&(caseD-6==pionB[i]||caseD-6==kingB[i])&&(caseD-5!=pionB[i]||caseD-5!=kingB[i])){
+		VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD-6);
+		if(VerifPionPetit==true){
+		a=1;}
+	    }
+	    else if(Joueur==B&&(caseD+5==pionW[i]||caseD+5==kingW[i])&&(caseD+4!=pionW[i]||caseD+4!=kingW[i])){
+		VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD+5);
+		if(VerifPionGrand==true){
+		a=2;}
+	    }
+	    else if(Joueur==W&&(caseD-5==pionB[i]||caseD-5==kingB[i])&&(caseD-6!=pionB[i]||caseD-6!=kingB[i])){
+		VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD-5);
+		if(VerifPionGrand==true){
+		a=2;}
+	    }
+  	    }
+	  }
+	}
+	
+	return a;
+}
 
 
