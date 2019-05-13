@@ -151,6 +151,8 @@ void VerifPionGrand(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 
 void VerifKing(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int caseD, int caseA){ //vérifie la case d'arrivée de la reine
 
+		//on peut faire une fonction récursive à la place !!!!!!!!!!! Et comme ça on pourra verifier si 			elle peut manger en même temps
+
 	int a=0,i=1;
 	int pionWX[20],pionWY[20],pionBX[20],pionBY[20],kingWX[20],kingWY[20],kingBX[20],kingBY[20];
 	for(i=1;i<21;i++){
