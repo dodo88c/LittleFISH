@@ -221,7 +221,7 @@ int nb_pion(int pion[20],int king[20]){
 }
 
 void manger_pion(int pionW[20], int pionB[20],int kingW[20], int kingB[20], int caseD){ // verifie si un pion peut en manger un autre
-	int a=1;
+	int a=0,i=1;
 	VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD);
 	VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD);
 	Joueur(pionW[20],pionB[20],caseD);
@@ -285,24 +285,52 @@ void manger_pion(int pionW[20], int pionB[20],int kingW[20], int kingB[20], int 
 	else if(VerifPionPetit==false&&VerifPionGrand==false){
 	 for(i=1;i<21;i++){
 	    if(caseD%10<=5){
-	    if // cas a=3 pas fini
-
-	    else if(Joueur==B&&(caseD+5==pionW[i]||caseD+5==kingW[i])&&){
+	    if (Joueur==B&&(caseD+5==pionW[i]||caseD+5==kingW[i])&&(caseD+6==pionW[i]||caseD+6==kingW[i])){
+		VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD+5);
+		VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD+6);
+		if(VerifPionPetit==true){
+			if(VerifPionGrand==true){
+			a=3;
+			}
+			else{
+			a=1;
+			}		
+		}
+		else if(VerifPionGrand==true){
+		a=2;
+		}		
+	    }
+	    else if(Joueur==W&&(caseD-5==pionB[i]||caseD-5==kingB[i])&&(caseD-4==pionB[i]||caseD-4==kingB[i])){
+		VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD-5);
+		VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD-4);
+		if(VerifPionPetit==true){
+			if(VerifPionGrand==true){
+			a=3;
+			}
+			else{
+			a=1;
+			}		
+		}
+		else if(VerifPionGrand==true){
+		a=2;
+		}		
+	    }
+	    else if(Joueur==B&&(caseD+5==pionW[i]||caseD+5==kingW[i])&&(caseD+6!=pionW[i]||caseD+6!=kingW[i])){
 		VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD+5);
 		if(VerifPionPetit==true){
 		a=1;}
 	    }
-	    else if(Joueur==W&&(caseD-5==pionB[i]||caseD-5==kingB[i])&&){
+	    else if(Joueur==W&&(caseD-5==pionB[i]||caseD-5==kingB[i])&&(caseD-4!=pionB[i]||caseD-4!=kingB[i])){
 		VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD-5);
 		if(VerifPionPetit==true){
 		a=1;}
 	    }
-	    else if(Joueur==B&&(caseD+6==pionW[i]||caseD+6==kingW[i])&&){
+	    else if(Joueur==B&&(caseD+6==pionW[i]||caseD+6==kingW[i])&&(caseD+5!=pionW[i]||caseD+5!=kingW[i])){
 		VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD+6);
 		if(VerifPionGrand==true){
 		a=2;}
 	    }
-	    else if(Joueur==W&&(caseD-4==pionB[i]||caseD-4==kingB[i])&&){
+	    else if(Joueur==W&&(caseD-4==pionB[i]||caseD-4==kingB[i])&&(caseD-5!=pionB[i]||caseD-5!=kingB[i])){
 		VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD-4);
 		if(VerifPionGrand==true){
 		a=2;}
@@ -310,10 +338,34 @@ void manger_pion(int pionW[20], int pionB[20],int kingW[20], int kingB[20], int 
 	    }
 	    if(caseD%10>5){
 	    if(Joueur==B&&(caseD+4==pionW[i]||caseD+4==kingW[i])&&(caseD+5==pionW[i]||caseD+5==kingW[i])){
-		a=3;
+		VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD+4);
+		VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD+5);
+		if(VerifPionPetit==true){
+			if(VerifPionGrand==true){
+			a=3;
+			}
+			else{
+			a=1;
+			}		
+		}
+		else if(VerifPionGrand==true){
+		a=2;
+		}		
 	    }
 	    else if(Joueur==W&&(caseD-6==pionB[i]||caseD-6==kingB[i])&&(caseD-5==pionB[i]||caseD-5==kingB[i])){
-		a=3;
+		VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD-6);
+		VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD-5);
+		if(VerifPionPetit==true){
+			if(VerifPionGrand==true){
+			a=3;
+			}
+			else{
+			a=1;
+			}		
+		}
+		else if(VerifPionGrand==true){
+		a=2;
+		}		
 	    }
 	    else if(Joueur==B&&(caseD+4==pionW[i]||caseD+4==kingW[i])&&(caseD+5!=pionW[i]||caseD+5!=kingW[i])){
 		VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD+4);
