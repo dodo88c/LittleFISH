@@ -58,11 +58,6 @@ int main(){
 
 
 
-
-                  }     //while
-
-              }       // fermeture des configurations d'equipes
-
-     }   }      // fermeture des configurations d'equipes
+     }      // fermeture des configurations d'equipes
 
 } //main

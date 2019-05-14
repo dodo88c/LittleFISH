@@ -24,3 +24,6 @@ regles_verif:
 
     void conversion_plateau(int pion_dep[21], int pion_arr_X[11], int pion_arr_Y[11]){
         // convertit le plateau en 10*10 pour un groupe de pion
+
+    int manger_pion(int pionW[20], int pionB[20],int kingW[20], int kingB[20], int caseD){
+        // verifie si un pion peut en manger un autre
