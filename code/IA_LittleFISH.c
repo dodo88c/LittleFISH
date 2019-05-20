@@ -18,9 +18,14 @@ int main(){
 	int kingB[20]; //noir
 
 
-    init(pionW, pionB, kingW, kingB);  // crée le plateau
+	init(pionW, pionB, kingW, kingB);  // crée le plateau
 
 	affichage(pionW, pionB, kingW, kingB);
+
+
+
+
+
 
 
 
