@@ -1,11 +1,13 @@
 #include <stdio.h>
-#include "regles_verif.h"
-#include "interface.h"
-#include "communication_joueur.h"
 #include <stdlib.h>
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
+
+#include "regles_verif.h"
+#include "interface.h"
+#include "communication_joueur.h"
+#include "joueur_non_deterministe.h"
 
 
 
