@@ -6,6 +6,23 @@
 
 
 
+
+
+
+
+
+
+
+
+define fichier_txt = ENDGAME_1;
+
+
+
+
+
+
+
+
 int main(){
 
     int n=0; i=0, j=0, k=0, l=0;
@@ -40,7 +57,7 @@ int main(){
                 int compteur[n-1]          //  ex n=7 : tab[0],tab[1],tab[2],tab[3],tab[4],tab[5],tab[6]      tableau compteur kilometrique
 
                 for(int ta=0 , ta < n , ta++){
-                    compteur[ta]= ta+1;
+                    compteur[ta]= ta+1;     //  ex tab[0] = 1 ,tab[1] = 2, tab[2] = 3... evite les configuration deja etablie
                 }
 
 
