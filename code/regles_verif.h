@@ -221,12 +221,13 @@ int nb_pion(int pion[20],int king[20]){
 }
 
 int manger_pion(int pionW[20], int pionB[20],int kingW[20], int kingB[20], int caseD){ // verifie si un pion peut en manger un autre
-	int a=1;
+	int a=0;
 	VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD);
 	VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD);
 	Joueur(pionW[20],pionB[20],caseD);
 //a=1: le pion peut manger sur la case la plus petite , a=2: le pion peut manger sur la case la plus grande, a=3:le pion peut manger sur les deux case
-	if(VerifPionPetit==false||VerifPionGrand==true){
+// a=0; rien
+    if(VerifPionPetit==false||VerifPionGrand==true){
 	  for(int i=1;i<21;i++){
 	    if(caseD%10<=5){
 	    if((Joueur=='B')&&(caseD+5==pionW[i]||caseD+5==kingW[i])){
