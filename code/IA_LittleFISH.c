@@ -62,6 +62,7 @@ int main(){
 	if(equipe = 'B'){
 		Joue_un_coup(pionW, pionB, kingW, kingB, joueur)
 		tour++;
+		passage_dame(pionW, pionB, kingW, kingB);
 		affichage(pionW, pionB, kingW, kingB, equipe);
 		savegame(pionW, pionB, kingW, kingB, tour);
 	}
@@ -69,9 +70,10 @@ int main(){
 
 	do{
 
-
-		demande_coup(pionW, pionB, kingW, kingB, equipe_IA);
+		conversion_equipe(pionW, pionB, kingW, kingB, pion_IA, pion_Joueur, king_IA, king_Joueur, equipe);
+		demande_coup(pionW, pionB, kingW, kingB,pion_IA, pion_Joueur, king_IA, king_Joueur);
 		tour++;
+		passage_dame(pionW, pionB, kingW, kingB);
 		affichage(pionW, pionB, kingW, kingB, equipe);
 		savegame(pionW, pionB, kingW, kingB, tour);
 
@@ -83,6 +85,7 @@ int main(){
 
 			Joue_un_coup(pionW, pionB, kingW, kingB, equipe_IA)
 			tour++;
+			passage_dame(pionW, pionB, kingW, kingB);
 			affichage(pionW, pionB, kingW, kingB, equipe);
 			savegame(pionW, pionB, kingW, kingB, tour);
 		}

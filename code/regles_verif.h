@@ -59,7 +59,7 @@ void conversion_equipe(int pionW[20], int pionB[20], int kingW[20], int kingB[20
 
 
 
-bool VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD){ //vérifie la case la plus petite(gauche)
+booleen VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD){ //vérifie la case la plus petite(gauche)
 	Joueur(pionW[20],pionB[20],kingW[20],kingB[20],caseD);
 
 	int a=0;
@@ -114,7 +114,7 @@ bool VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 
 
 
-void VerifPionGrand(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD){ //vérifie la case la plus grande(droite)
+booleen VerifPionGrand(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD){ //vérifie la case la plus grande(droite)
 	Joueur(pionW[20],pionB[20],kingW[20],kingB[20],caseD);
 
 	int a=0;

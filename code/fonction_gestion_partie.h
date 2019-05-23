@@ -33,3 +33,90 @@ void savegame(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int to
 
 
 }
+
+booleen verif_delp_joueur(int pionW[20], int pionB[20], int kingW[20], int kingB[20],int pion_IA[20], int pion_Joueur[20], int king_IA[20], int king_Joueur[20] , int caseD, int caseA, int action){
+
+        int nb_possible_manger=0;
+        int tab_possible_de_manger[20][2];
+
+        for(int i=0; i<20; i++){            // attribue des poids pour les déplacements des pions joueurs
+
+            if(P_joueur[i]==0){
+                i++;
+            } //saute le pion si =0
+            else{
+
+                variableA = pion_joueur[i];
+                variableB = manger_pion(pionW, pionB, kingW, kingB, variableA );
+    //a=1: le pion peut manger sur la case la plus petite , a=2: le pion peut manger sur la case la plus grande, a=3:le pion peut sur les deux case
+    //a=0; rien
+
+                if(variableB == 3){
+                    srand(time(NULL));
+                    variableB=rand()%2+1;    //entre 1-2
+                }
+
+                if(variableB == 1){
+
+                    variableC= deplacement_apres_manger_petit(pionW, pionB, kingW, kingB, variableA, equipe );
+                    if(variableC == 0){
+                         printf(" ERREUR verif depl jouer 1\n" );
+                    }
+                    else{
+
+                        nb_possible_manger++;
+                        deplacement_a_faire[i][1]= P_joueur[i];
+                        deplacement_a_faire[i][2]= variableC;
+
+                    }
+                }
+                if(variableB == 2){
+
+                    int variableC= deplacement_apres_manger_grand(pionW, pionB, kingW, kingB, variableA, equipe );
+                    if(variableC == 0){
+                        printf(" ERREUR verif depl jouer 2 \n" );
+                    }
+                    else{
+
+                        nb_possible_manger++;
+                        deplacement_a_faire[i][1]= P_joueur[i];
+                        deplacement_a_faire[i][2]= variableC;
+
+                    }
+                }
+                if(variableB == 0){
+                        deplacement_a_faire[i][1]= 0;
+                        deplacement_a_faire[i][2]= 0;
+                }
+            }
+
+        }
+
+        action = 0;
+
+        if(nb_possible_manger>=1){
+
+               for(int i=0; i<20; i++){
+                       if(deplacement_a_faire[i][1]==caseD && deplacement_a_faire[i][2]==caseA){
+                               printf(" vous mangez un pion\n", );
+                               action=1;
+                               return true;                       }
+               }
+               else{
+                       printf(" il est possible de manger un pion, vous devez le faire\n", );
+                       return false
+               }
+        }
+        else{
+
+                if(VerifPionPetit(pionW, pionB, kingW, kingB, caseD )==true ||VerifPionGrand(pionW, pionB, kingW, kingB, caseD )==true){
+                        printf(" vous deplacez un pion\n", );
+                        action=2;
+                        return true;
+                }
+                else{
+                        printf(" il n'est pas possible de faire ce mouvement\n", );
+                        return false
+                }
+        }
+}

@@ -97,6 +97,10 @@ void Joue_un_coup (int pionW[20], int pionB[20], int kingW[20], int kingB[20], c
 
                 }
             }
+            if(variableB == 0){
+                    deplacement_a_faire[i][1]= 0;
+                    deplacement_a_faire[i][2]= 0;
+            }
         }
     }
 
