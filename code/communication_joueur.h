@@ -96,7 +96,7 @@ void demande_coup(int pionW[20], int pionB[20], int kingW[20], int kingB[20],int
                            VarA= (caseA+caseD-1)/2;
                        }
 
-    ppp       }
+                   }
                for(int i=1;i<21;i++){
 
 

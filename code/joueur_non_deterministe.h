@@ -184,7 +184,7 @@ void Joue_un_coup (int pionW[20], int pionB[20], int kingW[20], int kingB[20], c
 
 
 
-void deplacement_apres_manger_petit(int pionW[20], int pionB[20], int kingW[20], int kingB[20], int caseD, char Joueur){ // retourne la case d'arrivé du pion
+int deplacement_apres_manger_petit(int pionW[20], int pionB[20], int kingW[20], int kingB[20], int caseD, char Joueur){ // retourne la case d'arrivé du pion
     int a=0;
     int caseA=0;
     int caseAA=0;
@@ -305,7 +305,7 @@ void deplacement_apres_manger_petit(int pionW[20], int pionB[20], int kingW[20],
 
 
 
-void deplacement_apres_manger_grand(int pionW[20], int pionB[20], int kingW[20], int kingB[20], int caseD, char Joueur){ // retourne la case d'arrivé du pion
+int deplacement_apres_manger_grand(int pionW[20], int pionB[20], int kingW[20], int kingB[20], int caseD, char Joueur){ // retourne la case d'arrivé du pion
     int a=0;
     int caseA=0;
     int caseAA=0;
