@@ -65,3 +65,15 @@ int menu_option(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){
     }
 
 }
+
+
+void demande_coup(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){
+
+
+
+
+
+
+
+
+}

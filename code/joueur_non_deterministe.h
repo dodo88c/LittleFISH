@@ -14,6 +14,8 @@
 // Il en ressort la configuration de plateau du tour suivant
 
 
+void joueur_suivant()
+
 
 
 void Joue_un_coup (int pionW[20], int pionB[20], int kingW[20], int kingB[20], char equipe){ // fonction principale, revoie les tableaux de pions

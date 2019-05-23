@@ -35,6 +35,9 @@ int main(){
         scanf(n);                                                                 //                                       exemple: 5
     }
 
+
+
+
 // declaration de toute les configurations d'equipes:
 
     for(int k=0, k < a, k++){                   // reine W de 0 à  a-1                                                      exemple: 1
@@ -77,9 +80,7 @@ int main(){
 
 
 
-
-                                //instruction
-                                // ici il faut jouer jusqu'a perdre une seule piece du camp des blancs
+                    
 
 
 
@@ -104,9 +105,8 @@ int main(){
 // les tableaux de taille i,j,k,l ont été convertit en taille 20
 
 
-
-
 // A partir de maintenant on envoi les confgurations tab et tab_next dans la base de donnée
+
 
 // les configurations on été envoyé
 

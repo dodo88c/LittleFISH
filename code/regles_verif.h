@@ -24,13 +24,12 @@ void init(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){ //initial
 
 
 
-
-char Joueur(int pionW[20], int pionB[20] , int caseD){ //Donne l'équipe
+char Joueur(int pionW[20], int pionB[20], int kingW[20], int kingB[20], int caseD){ //Donne l'équipe
 	for(int i=1;i<21;i++){
-		if(caseD==pionB[i]){
+		if(caseD==pionB[i] || caseD==kingB[i]){
 			return 'B'; //équipe noire
 		}
-		if(caseD==pionW[i]){
+		if(caseD==pionW[i] || caseD==kingW[i]){
 
 			return 'W'; //équipe blanche
 		}
@@ -39,10 +38,29 @@ char Joueur(int pionW[20], int pionB[20] , int caseD){ //Donne l'équipe
 }
 
 
+void conversion_equipe(int pionW[20], int pionB[20], int kingW[20], int kingB[20],int pion_IA[20], int pion_Joueur[20], int king_IA[20], int king_Joueur[20], char equipe){
+
+        if(equipe == A){
+                pion_joueur[20] = pionW[20];
+                king_joueur[20] = kingW[20];
+                pion_IA[20] = pionB[20];
+                king_IA[20] = kingB[20];
+        }
+
+        if(equipe == B){
+                pion_joueur[20] = pionB[20];
+                king_joueur[20] = kingB[20];
+                pion_IA[20] = pionW[20];
+                king_IA[20] = kingW[20];
+        }
+
+
+}
+
 
 
 bool VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD){ //vérifie la case la plus petite(gauche)
-	Joueur(pionW[20],pionB[20],caseD);
+	Joueur(pionW[20],pionB[20],kingW[20],kingB[20],caseD);
 
 	int a=0;
 
@@ -97,7 +115,7 @@ bool VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 
 
 void VerifPionGrand(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD){ //vérifie la case la plus grande(droite)
-	Joueur(pionW[20],pionB[20],caseD);
+	Joueur(pionW[20],pionB[20],kingW[20],kingB[20],caseD);
 
 	int a=0;
 
@@ -205,9 +223,11 @@ void conversion_plateau(int pion_dep[20], int pion_arr_X[20], int pion_arr_Y[20]
 
 void passage_dame(int pionW[20], int pionB[20],int kingW[20], int kingB[20]){//transformation d'une dame en reine si elle atteint la fin de la grille
 	for(int i=1;i<21;i++){
-		if(pionW[i]==1||pionW[i]==2||pionW[i]==3||pionW[i]==4||pionW[i]==5){kingW[i]=pionW[i];
+		if(pionW[i]==1||pionW[i]==2||pionW[i]==3||pionW[i]==4||pionW[i]==5){
+                        kingW[i]=pionW[i];
 			pionW[i]=0;}
-		else if(pionB[i]==46||pionB[i]==47||pionB[i]==48||pionB[i]==49||pionB[i]==50){kingB[i]=pionB[i];
+		else if(pionB[i]==46||pionB[i]==47||pionB[i]==48||pionB[i]==49||pionB[i]==50){
+                        kingB[i]=pionB[i];
 			pionB[i]=0;}
 	}
 }
@@ -224,7 +244,7 @@ int manger_pion(int pionW[20], int pionB[20],int kingW[20], int kingB[20], int c
 	int a=0;
 	VerifPionPetit(pionW[20],pionB[20],kingW[20],kingB[20],caseD);
 	VerifPionGrand(pionW[20],pionB[20],kingW[20],kingB[20],caseD);
-	Joueur(pionW[20],pionB[20],caseD);
+	Joueur(pionW[20],pionB[20],kingW[20],kingB[20],caseD);
 //a=1: le pion peut manger sur la case la plus petite , a=2: le pion peut manger sur la case la plus grande, a=3:le pion peut manger sur les deux case
 // a=0; rien
     if(VerifPionPetit==false||VerifPionGrand==true){

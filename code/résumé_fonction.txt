@@ -13,6 +13,9 @@ regles_verif:
     char Joueur(int pionW[20], int pionB[20] , int caseD){
         //Donne l'équipe du pion de caseD
 
+    void conversion_equipe(int pionW[20], int pionB[20], int kingW[20], int kingB[20],int pion_IA[20], int pion_Joueur[20], int king_IA[20], int king_Joueur[20], char equipe){
+
+
     void VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD){
         //vérifie la case la plus petite(gauche)
 
@@ -25,5 +28,54 @@ regles_verif:
     void conversion_plateau(int pion_dep[21], int pion_arr_X[11], int pion_arr_Y[11]){
         // convertit le plateau en 10*10 pour un groupe de pion
 
+    void passage_dame(int pionW[20], int pionB[20],int kingW[20], int kingB[20]){
+        //transformation d'une dame en reine si elle atteint la fin de la grille
+
+    int nb_pion(int pion[20],int king[20]){
+        //return nb pion d'une quipe
+
     int manger_pion(int pionW[20], int pionB[20],int kingW[20], int kingB[20], int caseD){
         // verifie si un pion peut en manger un autre
+
+
+interface:
+
+
+        void affichage(int pionW[20], int pionB[20], int kingW[20], int kingB[20], char equipe){
+
+
+
+joueur_non_deterministe:
+
+
+    void Joue_un_coup (int pionW[20], int pionB[20], int kingW[20], int kingB[20], char equipe){
+        // fonction principale, revoie les tableaux de pions
+
+    void deplacement_apres_manger_petit(int pionW[20], int pionB[20], int kingW[20], int kingB[20], int caseD, char Joueur){
+        // retourne la case d'arrivé du pion
+
+    void deplacement_apres_manger_grand(int pionW[20], int pionB[20], int kingW[20], int kingB[20], int caseD, char Joueur){
+        // retourne la case d'arrivé du pion
+
+
+communication_joueur:
+
+        int lancement(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){
+
+        int menu_option(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){
+
+        void demande_coup(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){
+
+
+ecriture fichier:
+
+        void ecriture_fichier(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , char nom_fichier){
+
+        int cmp_tab(int *tab1,int *tab2,int taille){ for(i=0;i<taille;i++) { if (tab1[i]!=tab2[i]) return 0; } return 1; }
+
+        int recherche_suivant_fichier(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int ligne, char nom_fichier){
+
+
+fonction_gestion_partie:
+
+        void savegame(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int tour){
