@@ -60,7 +60,7 @@ int main(){
 //	##################################### JEU ############################################
 
 	if(equipe = 'B'){
-		Joue_un_coup(pionW, pionB, kingW, kingB, joueur)
+		Joue_un_coup(pionW, pionB, kingW, kingB, equipe_IA);
 		tour++;
 		passage_dame(pionW, pionB, kingW, kingB);
 		affichage(pionW, pionB, kingW, kingB, equipe);
@@ -71,7 +71,7 @@ int main(){
 	do{
 
 		conversion_equipe(pionW, pionB, kingW, kingB, pion_IA, pion_Joueur, king_IA, king_Joueur, equipe);
-		demande_coup(pionW, pionB, kingW, kingB,pion_IA, pion_Joueur, king_IA, king_Joueur);
+		demande_coup(pionW, pionB, kingW, kingB,pion_IA, pion_Joueur, king_IA, king_Joueur,equipe);
 		tour++;
 		passage_dame(pionW, pionB, kingW, kingB);
 		affichage(pionW, pionB, kingW, kingB, equipe);
@@ -81,9 +81,9 @@ int main(){
 		NB_piece_IA = nb_pion(pion_IA, king_IA);
 
 
-		if{NB_piece_IA!=0){
+		if(NB_piece_IA!=0){
 
-			Joue_un_coup(pionW, pionB, kingW, kingB, equipe_IA)
+			Joue_un_coup(pionW, pionB, kingW, kingB, equipe_IA);
 			tour++;
 			passage_dame(pionW, pionB, kingW, kingB);
 			affichage(pionW, pionB, kingW, kingB, equipe);
@@ -95,7 +95,7 @@ int main(){
 		NB_piece_Joueur = nb_pion(pion_Joueur, king_Joueur);
 
 
-	}while(NB_piece_Joueur==0 || NB_piece_IA=0);
+	}while(NB_piece_Joueur==0 || NB_piece_IA==0);
 
 
 
@@ -110,8 +110,6 @@ int main(){
 	else{
 		printf("On a un probleme Boss (fin de IA_LittleFISH)" );
 	}
-
-
 
 
 

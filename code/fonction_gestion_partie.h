@@ -13,7 +13,7 @@ void savegame(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int to
 
         FILE* fichier = NULL;
 
-        fichier = fopen("dossier/"savegame".txt", "a+");  // option a: ajoute des lignes à la fin
+        fichier = fopen("dossier/savegame.txt", "a+");  // option a: ajoute des lignes à la fin
 
 
        long ftell(FILE* pointeurSurFichier); //Elle renvoie la position actuelle du curseur sous la forme d'un long:
@@ -26,7 +26,7 @@ void savegame(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int to
        &pionW[0], &pionW[1], &pionW[2], &pionW[3], &pionW[4], &pionW[5], &pionW[6], &pionW[7], &pionW[8], &pionW[9], &pionW[10], &pionW[11], &pionW[12], &pionW[13], &pionW[14], &pionW[15], &pionW[16], &pionW[17], &pionW[18], &pionW[19],
         &pionB[0], &pionB[1], &pionB[2], &pionB[3], &pionB[4], &pionB[5], &pionB[6], &pionB[7], &pionB[8], &pionB[9], &pionB[10], &pionB[11], &pionB[12], &pionB[13], &pionB[14], &pionB[15], &pionB[16], &pionB[17], &pionB[18], &pionB[19],
          &kingW[0], &kingW[1], &kingW[2], &kingW[3], &kingW[4], &kingW[5], &kingW[6], &kingW[7], &kingW[8], &kingW[9], &kingW[10], &kingW[11], &kingW[12], &kingW[13], &kingW[14], &kingW[15], &kingW[16], &kingW[17], &kingW[18], &kingW[19],
-          &kingB[0], &kingB[1], &kingB[2], &kingB[3], &kingB[4], &kingB[5], &kingB[6], &kingB[7], &kingB[8], &kingB[9], &kingB[10], &kingB[11], &kingB[12], &kingB[13], &kingB[14], &kingB[15], &kingB[16], &kingB[17], &kingB[18], &kingB[19], );
+          &kingB[0], &kingB[1], &kingB[2], &kingB[3], &kingB[4], &kingB[5], &kingB[6], &kingB[7], &kingB[8], &kingB[9], &kingB[10], &kingB[11], &kingB[12], &kingB[13], &kingB[14], &kingB[15], &kingB[16], &kingB[17], &kingB[18], &kingB[19] );
 
 
 
@@ -34,19 +34,23 @@ void savegame(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int to
 
 }
 
-booleen verif_delp_joueur(int pionW[20], int pionB[20], int kingW[20], int kingB[20],int pion_IA[20], int pion_Joueur[20], int king_IA[20], int king_Joueur[20] , int caseD, int caseA, int action){
+bool verif_delp_joueur(int pionW[20], int pionB[20], int kingW[20], int kingB[20],int pion_IA[20], int pion_Joueur[20], int king_IA[20], int king_Joueur[20] , int caseD, int caseA, int action,char equipe){
 
         int nb_possible_manger=0;
         int tab_possible_de_manger[20][2];
+        int deplacement_a_faire[20][2];
+        int variableA=0;
+        int variableB=0;
+        int variableC=0;
 
         for(int i=0; i<20; i++){            // attribue des poids pour les déplacements des pions joueurs
 
-            if(P_joueur[i]==0){
+            if(pion_Joueur[i]==0){
                 i++;
             } //saute le pion si =0
             else{
 
-                variableA = pion_joueur[i];
+                variableA = pion_Joueur[i];
                 variableB = manger_pion(pionW, pionB, kingW, kingB, variableA );
     //a=1: le pion peut manger sur la case la plus petite , a=2: le pion peut manger sur la case la plus grande, a=3:le pion peut sur les deux case
     //a=0; rien
@@ -65,7 +69,7 @@ booleen verif_delp_joueur(int pionW[20], int pionB[20], int kingW[20], int kingB
                     else{
 
                         nb_possible_manger++;
-                        deplacement_a_faire[i][1]= P_joueur[i];
+                        deplacement_a_faire[i][1]= pion_Joueur[i];
                         deplacement_a_faire[i][2]= variableC;
 
                     }
@@ -79,9 +83,8 @@ booleen verif_delp_joueur(int pionW[20], int pionB[20], int kingW[20], int kingB
                     else{
 
                         nb_possible_manger++;
-                        deplacement_a_faire[i][1]= P_joueur[i];
+                        deplacement_a_faire[i][1]= pion_Joueur[i];
                         deplacement_a_faire[i][2]= variableC;
-
                     }
                 }
                 if(variableB == 0){
@@ -98,25 +101,27 @@ booleen verif_delp_joueur(int pionW[20], int pionB[20], int kingW[20], int kingB
 
                for(int i=0; i<20; i++){
                        if(deplacement_a_faire[i][1]==caseD && deplacement_a_faire[i][2]==caseA){
-                               printf(" vous mangez un pion\n", );
+                               printf(" vous mangez un pion\n" );
                                action=1;
-                               return true;                       }
+                               return true;
                }
                else{
-                       printf(" il est possible de manger un pion, vous devez le faire\n", );
-                       return false
+
+                       printf(" il est possible de manger un pion, vous devez le faire\n" );
+                       return false;
                }
-        }
+           }
+       }
         else{
 
                 if(VerifPionPetit(pionW, pionB, kingW, kingB, caseD )==true ||VerifPionGrand(pionW, pionB, kingW, kingB, caseD )==true){
-                        printf(" vous deplacez un pion\n", );
+                        printf(" vous deplacez un pion\n" );
                         action=2;
                         return true;
                 }
                 else{
-                        printf(" il n'est pas possible de faire ce mouvement\n", );
-                        return false
+                        printf(" il n'est pas possible de faire ce mouvement\n" );
+                        return false;
                 }
         }
 }

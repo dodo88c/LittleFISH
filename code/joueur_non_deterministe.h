@@ -14,7 +14,7 @@
 // Il en ressort la configuration de plateau du tour suivant
 
 
-void joueur_suivant()
+void joueur_suivant();
 
 
 
