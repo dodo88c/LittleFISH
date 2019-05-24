@@ -110,16 +110,7 @@ void Joue_un_coup (int pionW[20], int pionB[20], int kingW[20], int kingB[20], c
 
         int j=i-20;
         if(K_joueur[j]==0){ i++; poids_des_routes[i]=0; } //saute le pion si =0
-
-
-
-
-
-
-
     }
-
-
 
 
     int variableD=0;    //plus grand poids
@@ -174,8 +165,6 @@ void Joue_un_coup (int pionW[20], int pionB[20], int kingW[20], int kingB[20], c
         pionW[20] = P_advs[20];
         kingW[20] = K_advs[20];
     }
-
-
 
 }
 
