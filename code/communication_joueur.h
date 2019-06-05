@@ -2,8 +2,34 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <time.h>
-#include <stdlib.h>
-#include <stdio.h>
+
+#include "fonction_gestion_partie.h"
+
+int menu_option(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){
+
+    char word2 = 'r';
+
+    printf ("\33[H\33[2J"); //clear console
+    printf("\n    +-----------    BIENVENUE sur LitlleFISH   -----------+ " );
+    printf("\n    +-----------      une IA tres sympa !!     -----------+ \n \n \n \n \n \n" );
+
+    do{
+        printf( "Voici les options Avancees:\n \n" );
+        printf( "  - Pour rentrer une configuration de plateau précise, entrez 't' (pour 'tricheur')  \n " );
+        printf( "  - Pour sortir du menu, entrez 'e'  \n \n \n" );
+        scanf("%c", &word2 );
+
+    }while(word2!= 't' || word2!= 'e');
+
+    if( word2!= 't'){
+        return 0;
+    }
+    if( word2!= 'e'){
+        return 1;
+    }
+
+}
+
 
 
 int lancement(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){      //demande les options de lancement de partie
@@ -14,14 +40,20 @@ int lancement(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){      
     printf("\n    +-----------    BIENVENUE sur LitlleFISH   -----------+ " );
     printf("\n    +-----------      une IA tres sympa !!     -----------+ \n \n \n \n \n \n" );
 
-    do{
+    while(word!= 'b' && word!= 'n' && word!= 'o'){
+        word = 'r';
         printf( "Voici les options de lancement:\n \n" );
         printf( "  - Pour jouer une partie avec les Blancs, entrez 'b'  \n" );
         printf( "  - Pour jouer une partie avec les Noirs, entrez 'n'  \n" );
         printf( "  - Pour voir les options supplementaires, entrez 'o'  \n \n \n" );
-        scanf("%c \n", word );
 
-    }while(word!= 'b' || word!= 'n' || word!= 'o');
+        scanf("%c", &word );
+
+        printf(" bon choix numero 1 %c \n", word );
+
+    }
+
+    printf(" bon choix numero 2\n" );
 
     if( word!= 'b'){
         return 0;
@@ -41,30 +73,6 @@ int lancement(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){      
 }
 
 
-int menu_option(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){
-
-    char word2 = 'r';
-
-    printf ("\33[H\33[2J"); //clear console
-    printf("\n    +-----------    BIENVENUE sur LitlleFISH   -----------+ " );
-    printf("\n    +-----------      une IA tres sympa !!     -----------+ \n \n \n \n \n \n" );
-
-    do{
-        printf( "Voici les options Avancees:\n \n" );
-        printf( "  - Pour rentrer une configuration de plateau précise, entrez 't' (pour 'tricheur')  \n " );
-        printf( "  - Pour sortir du menu, entrez 'e'  \n \n \n" );
-        scanf("%c \n", word2 );
-
-    }while(word2!= 't' || word2!= 'e');
-
-    if( word2!= 't'){
-        return 0;
-    }
-    if( word2!= 'e'){
-        return 1;
-    }
-
-}
 
 
 void demande_coup(int pionW[20], int pionB[20], int kingW[20], int kingB[20],int pion_IA[20], int pion_Joueur[20], int king_IA[20], int king_Joueur[20],char equipe){
@@ -72,17 +80,18 @@ void demande_coup(int pionW[20], int pionB[20], int kingW[20], int kingB[20],int
         int caseD=0;
         int caseA=0;
 
-        do {
-                intf( " Enter le numero de la case de départ  \n \n" );
-                scanf("%c \d", caseD );
-                printf( "  Entrez le numero de la case d'arrivée \n \n" );
-                scanf("%c \d", caseA );
+        while( (caseD <=0 || caseD >= 51) || (caseA <=0 && caseA >= 51) || (caseA==caseD)){
+                printf( " Enter le numero de la case de départ  \n \n" );
+                scanf("%d", &caseD );
 
-        } while( (caseD >=1 && caseD <= 50) && (caseA >=1 && caseA <= 50) && (caseA!=caseD));
+                printf( "  Entrez le numero de la case d'arrivée \n \n" );
+                scanf("%d", &caseA );
+
+        }
 
 
         int action; //0-> rien; 1: manger , 2: deplacer
-       bool var=false;
+       bool Var=false;
        int VarA=0;
        Var=verif_delp_joueur(pionW, pionB, kingW, kingB,pion_IA, pion_Joueur, king_IA, king_Joueur,caseD,caseA,action, equipe);
        if(Var==true){
@@ -97,7 +106,7 @@ void demande_coup(int pionW[20], int pionB[20], int kingW[20], int kingB[20],int
                        }
 
                    }
-               for(int i=1;i<21;i++){
+               for(int i=0;i<20;i++){
 
 
                        if(pionW[i]==caseD){
@@ -133,7 +142,7 @@ void demande_coup(int pionW[20], int pionB[20], int kingW[20], int kingB[20],int
 
        }
        else{
-               demande_coup(pionW, pionB, kingW, kingB,pion_IA, pion_Joueur, king_IA, king_Joueur);
+               demande_coup(pionW, pionB, kingW, kingB,pion_IA, pion_Joueur, king_IA, king_Joueur, equipe);
        }
 
 

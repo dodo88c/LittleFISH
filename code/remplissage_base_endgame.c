@@ -28,11 +28,11 @@ int main(){
     int n=0; i=0, j=0, k=0, l=0;
 
     printf("entrer le nombre de pion de la table de la base endgame à generer");                               // demande la valeur de la table à remplir
-    scanf(n);
+    scanf("%d",n);
 
     while(a<=0 || a==1 || a>20){
         printf("entrer le nombre de pion de la table de la base à generer, entre 2 et 20");
-        scanf(n);                                                                 //                                       exemple: 5
+        scanf("%d",n);                                                                 //                                       exemple: 5
     }
 
 
@@ -43,7 +43,7 @@ int main(){
     for(int k=0, k < a, k++){                   // reine W de 0 à  a-1                                                      exemple: 1
         for(int l=0, l < (a-k), l++{            // reine B de 0 à  a-k-1                                                    exemple: 2
 
-            int i=1, j=1;
+            int i=0, j=1;
             if(k>0){ int i=0;}
             if(l>0){ int i=0;}
 

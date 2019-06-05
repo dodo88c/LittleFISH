@@ -11,11 +11,11 @@ int main(){
     int n=0; i=0, j=0, k=0, l=0;
 
     printf("entrer le le nombre de tour de la base opening à generer");                               // demande la valeur de la table à remplir
-    scanf(n);
+    scanf("%d",n);
 
     while(a<=0 || a>10){
         printf("entrer le degré de la base à generer, entre 1 et 10");
-        scanf(n);                                                                 //                                       exemple: 5
+        scanf("%d",n);                                                                 //                                       exemple: 5
     }
 
 // declaration de toute les configurations d'equipes:

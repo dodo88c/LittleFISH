@@ -1,12 +1,11 @@
-
-
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <time.h>
 
-#include <stdlib.h>
-#include <stdio.h>
+
+
+
 
 
 void savegame(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int tour){     // ecrit une ligne dans le ficier
@@ -51,7 +50,7 @@ bool verif_delp_joueur(int pionW[20], int pionB[20], int kingW[20], int kingB[20
             else{
 
                 variableA = pion_Joueur[i];
-                variableB = manger_pion(pionW, pionB, kingW, kingB, variableA );
+                variableB = manger_pion(pionW, pionB, kingW, kingB, variableA, equipe );
     //a=1: le pion peut manger sur la case la plus petite , a=2: le pion peut manger sur la case la plus grande, a=3:le pion peut sur les deux case
     //a=0; rien
 
@@ -114,12 +113,12 @@ bool verif_delp_joueur(int pionW[20], int pionB[20], int kingW[20], int kingB[20
        }
         else{
 
-                if(VerifPionPetit(pionW, pionB, kingW, kingB, caseD )==true ||VerifPionGrand(pionW, pionB, kingW, kingB, caseD )==true){
+                if(VerifPionPetit(pionW, pionB, kingW, kingB, caseD, equipe )==false ||VerifPionGrand(pionW, pionB, kingW, kingB, caseD, equipe )==true){
                         printf(" vous deplacez un pion\n" );
                         action=2;
                         return true;
                 }
-                else{
+                if(VerifPionPetit(pionW, pionB, kingW, kingB, caseD, equipe )==false ||VerifPionGrand(pionW, pionB, kingW, kingB, caseD, equipe )==false){
                         printf(" il n'est pas possible de faire ce mouvement\n" );
                         return false;
                 }

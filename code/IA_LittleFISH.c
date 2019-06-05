@@ -5,10 +5,9 @@
 #include <stdio.h>
 
 #include "regles_verif.h"
+#include "joueur_non_deterministe.h"
 #include "interface.h"
 #include "communication_joueur.h"
-#include "joueur_non_deterministe.h"
-#include "fonction_gestion_partie.h"
 
 
 
@@ -42,31 +41,45 @@ int main(){
 
 	do{
 		variableA = lancement(pionW, pionB, kingW, kingB); // message de début
-	}while(variableA!=0 || variableA!=1 || variableA!=2);
+	}while(variableA!=0 && variableA!=1 && variableA!=2);
 
+	printf(" debug 1\n" );
 
 	if(variableA==0){  equipe = 'A'; equipe_IA = 'B'; } // configuration d'equipe standard (le joueur joue les blancs, l'IA les noirs)
 	if(variableA==1){  equipe = 'B'; equipe_IA = 'W';} //inverse
 
+	printf(" debug 2\n" );
 
 	init(pionW, pionB, kingW, kingB);  // crée le plateau
-	savegame(pionW, pionB, kingW, kingB, tour);
+
+	printf(" debug 3\n" );
+
+	//savegame(pionW, pionB, kingW, kingB, tour);
+
+	printf(" debug 4\n" );
+
 	affichage(pionW, pionB, kingW, kingB, equipe);
 
 
-
+	printf(" debug 5\n" );
 
 
 //	##################################### JEU ############################################
 
 	if(equipe = 'B'){
-		Joue_un_coup(pionW, pionB, kingW, kingB, equipe_IA);
+
+		printf(" debug 6\n" );
+
+		Joue_un_coup(pionW, pionB, kingW, kingB, equipe_IA, equipe);
 		tour++;
+		printf(" debug 7\n" );
 		passage_dame(pionW, pionB, kingW, kingB);
+		printf(" debug 8\n" );
 		affichage(pionW, pionB, kingW, kingB, equipe);
-		savegame(pionW, pionB, kingW, kingB, tour);
+		//savegame(pionW, pionB, kingW, kingB, tour);
 	}
 
+	printf(" debug 9\n" );
 
 	do{
 
@@ -75,7 +88,7 @@ int main(){
 		tour++;
 		passage_dame(pionW, pionB, kingW, kingB);
 		affichage(pionW, pionB, kingW, kingB, equipe);
-		savegame(pionW, pionB, kingW, kingB, tour);
+		//savegame(pionW, pionB, kingW, kingB, tour);
 
 		conversion_equipe(pionW, pionB, kingW, kingB, pion_IA, pion_Joueur, king_IA, king_Joueur, equipe);
 		NB_piece_IA = nb_pion(pion_IA, king_IA);
@@ -83,11 +96,11 @@ int main(){
 
 		if(NB_piece_IA!=0){
 
-			Joue_un_coup(pionW, pionB, kingW, kingB, equipe_IA);
+			Joue_un_coup(pionW, pionB, kingW, kingB, equipe_IA,equipe);
 			tour++;
 			passage_dame(pionW, pionB, kingW, kingB);
 			affichage(pionW, pionB, kingW, kingB, equipe);
-			savegame(pionW, pionB, kingW, kingB, tour);
+			//savegame(pionW, pionB, kingW, kingB, tour);
 		}
 
 
@@ -95,7 +108,7 @@ int main(){
 		NB_piece_Joueur = nb_pion(pion_Joueur, king_Joueur);
 
 
-	}while(NB_piece_Joueur==0 || NB_piece_IA==0);
+	}while(NB_piece_Joueur!=0 && NB_piece_IA!=0);
 
 
 

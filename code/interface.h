@@ -5,14 +5,14 @@ void affichage(int pionW[20], int pionB[20], int kingW[20], int kingB[20], char 
 	int carreau,place;
 	char grille[50];
 
-	printf("i: pionW[i]|pionB[i]|kingW[i]|kingB[i]" );
-	for(int i=0; i<20; i++){
+	printf("i: pionW[i]|pionB[i]|kingW[i]|kingB[i]\n" );
+	for(int i=0; i<21; i++){
 	printf("%i:  %i | %i | %i | %i\n", i , pionW[i], pionB[i], kingW[i], kingB[i]);}
 
 	for(carreau=1;carreau<51;carreau++){
 
             grille[carreau]=' '; //case vide
-            		for(place=1;place<21;place++){
+            		for(place=0;place<20;place++){
 
 
 
@@ -36,7 +36,7 @@ void affichage(int pionW[20], int pionB[20], int kingW[20], int kingB[20], char 
             		}
 	}
 
-	if(equipe == 'a'){
+	if(equipe == 'A'){
 
 			printf("+-------+-------+-------+-------+ IA LittleFISH +-------+-------+-------+-------+ \n");
 			printf("\n  \n" );
@@ -86,7 +86,7 @@ void affichage(int pionW[20], int pionB[20], int kingW[20], int kingB[20], char 
 
 	}
 
-	if(equipe == 'b'){
+	if(equipe == 'B'){
 			printf("+-------+-------+-------+-------+ IA LittleFISH +-------+-------+-------+-------+ \n");
 			printf("\n  \n" );
 			printf("+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+ \n");
