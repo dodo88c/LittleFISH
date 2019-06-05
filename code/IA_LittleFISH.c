@@ -73,7 +73,7 @@ int main(){
 		Joue_un_coup(pionW, pionB, kingW, kingB, equipe_IA, equipe);
 		tour++;
 		printf(" debug 7\n" );
-		passage_dame(pionW, pionB, kingW, kingB);
+		passage_dame(pionW, pionB, kingW, kingB, equipe);
 		printf(" debug 8\n" );
 		affichage(pionW, pionB, kingW, kingB, equipe);
 		//savegame(pionW, pionB, kingW, kingB, tour);
@@ -86,7 +86,7 @@ int main(){
 		conversion_equipe(pionW, pionB, kingW, kingB, pion_IA, pion_Joueur, king_IA, king_Joueur, equipe);
 		demande_coup(pionW, pionB, kingW, kingB,pion_IA, pion_Joueur, king_IA, king_Joueur,equipe);
 		tour++;
-		passage_dame(pionW, pionB, kingW, kingB);
+		passage_dame(pionW, pionB, kingW, kingB, equipe);
 		affichage(pionW, pionB, kingW, kingB, equipe);
 		//savegame(pionW, pionB, kingW, kingB, tour);
 
@@ -98,7 +98,7 @@ int main(){
 
 			Joue_un_coup(pionW, pionB, kingW, kingB, equipe_IA,equipe);
 			tour++;
-			passage_dame(pionW, pionB, kingW, kingB);
+			passage_dame(pionW, pionB, kingW, kingB, equipe);
 			affichage(pionW, pionB, kingW, kingB, equipe);
 			//savegame(pionW, pionB, kingW, kingB, tour);
 		}
