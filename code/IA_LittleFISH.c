@@ -23,7 +23,7 @@ int main(){
 
 	int variableA;
 
-	char equipe = 'A'; //type a ou type B
+	char equipe = 'W'; //type a ou type B
 	char equipe_IA = 'B'; // B ou W
 
 	int NB_piece_Joueur=20;
@@ -43,45 +43,46 @@ int main(){
 		variableA = lancement(pionW, pionB, kingW, kingB); // message de début
 	}while(variableA!=0 && variableA!=1 && variableA!=2);
 
-	printf(" debug 1\n" );
 
-	if(variableA==0){  equipe = 'A'; equipe_IA = 'B'; } // configuration d'equipe standard (le joueur joue les blancs, l'IA les noirs)
-	if(variableA==1){  equipe = 'B'; equipe_IA = 'W';} //inverse
 
-	printf(" debug 2\n" );
+	if(variableA==0){  equipe = 'B'; equipe_IA = 'W'; } // configuration d'equipe standard (le joueur joue les blancs, l'IA les noirs)
+	if(variableA==1){  equipe = 'W'; equipe_IA = 'B';} //inverse
+
+
 
 	init(pionW, pionB, kingW, kingB);  // crée le plateau
 
-	printf(" debug 3\n" );
+
 
 	//savegame(pionW, pionB, kingW, kingB, tour);
 
-	printf(" debug 4\n" );
+
 
 	affichage(pionW, pionB, kingW, kingB, equipe);
 
 
-	printf(" debug 5\n" );
+
 
 
 //	##################################### JEU ############################################
 
-	if(equipe = 'B'){
+	if(variableA == 0){
 
-		printf(" debug 6\n" );
+
 
 		Joue_un_coup(pionW, pionB, kingW, kingB, equipe_IA, equipe);
 		tour++;
-		printf(" debug 7\n" );
 		passage_dame(pionW, pionB, kingW, kingB, equipe);
-		printf(" debug 8\n" );
 		affichage(pionW, pionB, kingW, kingB, equipe);
 		//savegame(pionW, pionB, kingW, kingB, tour);
 	}
 
-	printf(" debug 9\n" );
+
 
 	do{
+
+		printf("équipe joueur = %c\n", equipe );
+		printf("équipe IA =   %c\n", equipe_IA );
 
 		conversion_equipe(pionW, pionB, kingW, kingB, pion_IA, pion_Joueur, king_IA, king_Joueur, equipe);
 		demande_coup(pionW, pionB, kingW, kingB,pion_IA, pion_Joueur, king_IA, king_Joueur,equipe);

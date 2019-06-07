@@ -33,6 +33,42 @@ void savegame(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int to
 
 }
 
+
+bool  petit_ou_grand(int pionW[20], int pionB[20],int kingW[20], int kingB[20], int caseD, int caseA, char equipe){ //retourne true si SD evsr A est petit; False si grand
+
+    if(equipe=='B'){
+        if(caseD%10<=5){
+            if( (caseD-5)== caseA){
+                return true;
+            }
+        }
+        else if(caseD%10>5){
+            if((caseD-6)==caseA){
+                return true;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+    if(equipe=='W'){
+
+        if(caseD%10<=5){
+            if((caseD+5)==caseA){
+                return true;
+            }
+        }
+        else if(caseD%10>5){
+            if((caseD+4)==caseA){
+                return true;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+}
+
 bool verif_delp_joueur(int pionW[20], int pionB[20], int kingW[20], int kingB[20],int pion_IA[20], int pion_Joueur[20], int king_IA[20], int king_Joueur[20] , int caseD, int caseA, int action,char equipe){
 
         int nb_possible_manger=0;
@@ -113,12 +149,20 @@ bool verif_delp_joueur(int pionW[20], int pionB[20], int kingW[20], int kingB[20
        }
         else{
 
-                if(VerifPionPetit(pionW, pionB, kingW, kingB, caseD, equipe )==false ||VerifPionGrand(pionW, pionB, kingW, kingB, caseD, equipe )==true){
+            bool variableE = false;
+            variableE = petit_ou_grand(pionW, pionB, kingW, kingB, caseD, caseA, equipe);
+
+                 if(VerifPionPetit(pionW, pionB, kingW, kingB, caseD, equipe )==true  && variableE == true){
                         printf(" vous deplacez un pion\n" );
                         action=2;
                         return true;
                 }
-                if(VerifPionPetit(pionW, pionB, kingW, kingB, caseD, equipe )==false ||VerifPionGrand(pionW, pionB, kingW, kingB, caseD, equipe )==false){
+                else if(VerifPionGrand(pionW, pionB, kingW, kingB, caseD, equipe )==true  && variableE == false){
+                        printf(" vous deplacez un pion\n" );
+                        action=2;
+                        return true;
+                }
+                else{
                         printf(" il n'est pas possible de faire ce mouvement\n" );
                         return false;
                 }

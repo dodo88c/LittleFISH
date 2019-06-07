@@ -14,22 +14,21 @@ void init(int pionW[20], int pionB[20], int kingW[20], int kingB[20]){ //initial
 
         kingW[i]=0;
         kingB[i]=0;
-
-
     }
+    printf(" initialisation effectuée \n ");
 
 }
-
+//OK
 
 
 char Joueur(int pionW[20], int pionB[20], int kingW[20], int kingB[20], int caseD){ //Donne l'équipe
 
-    printf(" debug 1BBA\n" );
+
 	for(int i=0;i<20;i++){
 		if(caseD==pionB[i] || caseD==kingB[i]){
 			return 'B'; //équipe noire
 		}
-        printf(" debug 2BbA\n" );
+
 		if(caseD==pionW[i] || caseD==kingW[i]){
 
 			return 'W'; //équipe blanche
@@ -37,11 +36,11 @@ char Joueur(int pionW[20], int pionB[20], int kingW[20], int kingB[20], int case
 
 	}
 }
-
+//OK
 
 void conversion_equipe(int pionW[20], int pionB[20], int kingW[20], int kingB[20],int pion_IA[20], int pion_Joueur[20], int king_IA[20], int king_Joueur[20], char equipe){
 
-        if(equipe == 'A'){
+        if(equipe == 'W'){
                 pion_Joueur[20] = pionW[20];
                 king_Joueur[20] = kingW[20];
                 pion_IA[20] = pionB[20];
@@ -57,7 +56,7 @@ void conversion_equipe(int pionW[20], int pionB[20], int kingW[20], int kingB[20
 
 
 }
-
+//OK
 
 
 bool VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD, char equipe){ //vérifie la case la plus petite(gauche)
@@ -72,7 +71,7 @@ bool VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 			for(int i=0;i<20;i++){
 				if(caseD%10<=5){
 
-    				if( ((caseD+5)==pionW[i]) || ((caseD+5)==pionB[i]) || ((caseD+5)==kingW[i]) || ((caseD+5)==kingB[i]) ){
+    				if( ((caseD-5)==pionW[i]) || ((caseD-5)==pionB[i]) || ((caseD-5)==kingW[i]) || ((caseD-5)==kingB[i]) ){
 
     					a=1; //case ocupée
     				}
@@ -81,7 +80,7 @@ bool VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 
 				if(caseD%10>5){
 
-    				if((caseD+5)==pionW[i] || (caseD+5)==pionB[i]||(caseD+5)==kingW[i] || (caseD+5)==kingB[i]){
+    				if((caseD-6)==pionW[i] || (caseD-6)==pionB[i]||(caseD-6)==kingW[i] || (caseD-6)==kingB[i]){
     					a=1; //case ocupée
     				}
 				}
@@ -103,7 +102,7 @@ bool VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 				}
 				}
 				if(caseD%10>5){
-				if((caseD+5)==pionW[i] || (caseD+5)==pionB[i]||(caseD+5)==kingW[i] || (caseD+5)==kingB[i]){
+				if((caseD+4)==pionW[i] || (caseD+4)==pionB[i]||(caseD+4)==kingW[i] || (caseD+4)==kingB[i]){
 					a=1; //case ocupée
 				}
 				}
@@ -132,12 +131,12 @@ bool VerifPionGrand(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 		if(a==0){
 			for(int i=0;i<20;i++){
 				if(caseD%10<=5){
-				if((caseD+5)==pionW[i] || (caseD+5)==pionB[i]||(caseD+5)==kingW[i] || (caseD+5)==kingB[i]){
+				if((caseD-4)==pionW[i] || (caseD-4)==pionB[i]||(caseD-4)==kingW[i] || (caseD-4)==kingB[i]){
 					a=1; //case ocupée
 				}
 				}
 				if(caseD%10>5){
-				if((caseD+5)==pionW[i] || (caseD+5)==pionB[i]||(caseD+5)==kingW[i] || (caseD+5)==kingB[i]){
+				if((caseD-5)==pionW[i] || (caseD-5)==pionB[i]||(caseD-5)==kingW[i] || (caseD-5)==kingB[i]){
 					a=1; //case ocupée
 				}
 				}
@@ -153,7 +152,7 @@ bool VerifPionGrand(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 		if(a==0){
 			for(int i=0;i<20;i++){
 				if(caseD%10<=5){
-				if((caseD+5)==pionW[i] || (caseD+5)==pionB[i]||(caseD+5)==kingW[i] || (caseD+5)==kingB[i]){
+				if((caseD+6)==pionW[i] || (caseD+6)==pionB[i]||(caseD+6)==kingW[i] || (caseD+6)==kingB[i]){
 					a=1; //case ocupée
 				}
 				}
@@ -176,8 +175,7 @@ bool VerifPionGrand(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
     }
 }
 
-void VerifKing(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int caseD, int caseA){ //vérifie la case d'arrivée de la reine
-
+/*void VerifKing(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int caseD, int caseA){ //vérifie la case d'arrivée de la reine
 	int a=0;
 	int pionWX[20],pionWY[20],pionBX[20],pionBY[20],kingWX[20],kingWY[20],kingBX[20],kingBY[20];
 	for(int i=0;i<20;i++){
@@ -188,20 +186,15 @@ void VerifKing(int pionW[20], int pionB[20],int kingW[20], int kingB[20] , int c
 		conversion_plateau(pionB[20],pionBX[20],pionBY[20]);
 		conversion_plateau(kingW[20],kingWX[20],kingWY[20]);
 		conversion_plateau(kingB[20],kingBX[20],kingBY[20]);
-
 		}
 		}
 	}
-
-
-
-
 	if(a==1){
 		return false;
 	}
 	else
 		return true;
-}
+}*/
 
 
 void conversion_plateau(int pion_dep[20], int pion_arr_X[20], int pion_arr_Y[20]){ // convertit le plateau en 10*10 pour un groupe de pion
@@ -233,25 +226,28 @@ void conversion_plateau(int pion_dep[20], int pion_arr_X[20], int pion_arr_Y[20]
 void passage_dame(int pionW[20], int pionB[20],int kingW[20], int kingB[20], char equipe){//transformation d'une dame en reine si elle atteint la fin de la grille
 	for(int i=0;i<20;i++){
 
-        if(equipe == 'W'){
-            		if(pionW[i]==1||pionW[i]==2||pionW[i]==3||pionW[i]==4||pionW[i]==5){
+        if(equipe == 'B'){
+            if(pionW[i]==1||pionW[i]==2||pionW[i]==3||pionW[i]==4||pionW[i]==5){
                             kingW[i]=pionW[i];
     			pionW[i]=0;}
-    		else if(pionB[i]==46||pionB[i]==47||pionB[i]==48||pionB[i]==49||pionB[i]==50){
+    		if(pionB[i]==46||pionB[i]==47||pionB[i]==48||pionB[i]==49||pionB[i]==50){
                             kingB[i]=pionB[i];
     			pionB[i]=0;}
         }
-        if(equipe == 'B'){
-            		if(pionW[i]==1||pionB[i]==2||pionW[i]==3||pionW[i]==4||pionW[i]==5){
+        if(equipe == 'W'){
+            if(pionB[i]==1||pionB[i]==2||pionB[i]==3||pionB[i]==4||pionB[i]==5){
                             kingB[i]=pionB[i];
     			pionB[i]=0;}
-    		else if(pionW[i]==46||pionB[i]==47||pionB[i]==48||pionB[i]==49||pionB[i]==50){
-                            kingB[i]=pionB[i];
-    			pionB[i]=0;}
+    		 if(pionW[i]==46||pionW[i]==47||pionW[i]==48||pionW[i]==49||pionW[i]==50){
+                            kingW[i]=pionW[i];
+    			pionW[i]=0;}
         }
 
 	}
 }
+//OK
+
+
 
 int nb_pion(int pion[20],int king[20]){
 	int nb=0;
