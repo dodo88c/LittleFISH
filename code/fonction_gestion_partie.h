@@ -78,6 +78,7 @@ bool verif_delp_joueur(int pionW[20], int pionB[20], int kingW[20], int kingB[20
         int variableB=0;
         int variableC=0;
 
+
         for(int i=0; i<20; i++){            // attribue des poids pour les déplacements des pions joueurs
 
             if(pion_Joueur[i]==0){
@@ -153,12 +154,12 @@ bool verif_delp_joueur(int pionW[20], int pionB[20], int kingW[20], int kingB[20
             variableE = petit_ou_grand(pionW, pionB, kingW, kingB, caseD, caseA, equipe);
 
                  if(VerifPionPetit(pionW, pionB, kingW, kingB, caseD, equipe )==true  && variableE == true){
-                        printf(" vous deplacez un pion\n" );
+                        printf(" vous deplacez un pion sur petit\n" );
                         action=2;
                         return true;
                 }
                 else if(VerifPionGrand(pionW, pionB, kingW, kingB, caseD, equipe )==true  && variableE == false){
-                        printf(" vous deplacez un pion\n" );
+                        printf(" vous deplacez un pion sur grand \n" );
                         action=2;
                         return true;
                 }

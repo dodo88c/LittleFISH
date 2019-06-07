@@ -227,12 +227,12 @@ void passage_dame(int pionW[20], int pionB[20],int kingW[20], int kingB[20], cha
 	for(int i=0;i<20;i++){
 
         if(equipe == 'B'){
-            if(pionW[i]==1||pionW[i]==2||pionW[i]==3||pionW[i]==4||pionW[i]==5){
-                            kingW[i]=pionW[i];
-    			pionW[i]=0;}
-    		if(pionB[i]==46||pionB[i]==47||pionB[i]==48||pionB[i]==49||pionB[i]==50){
+            if(pionB[i]==1||pionB[i]==2||pionB[i]==3||pionB[i]==4||pionB[i]==5){
                             kingB[i]=pionB[i];
     			pionB[i]=0;}
+    		if(pionW[i]==46||pionW[i]==47||pionW[i]==48||pionW[i]==49||pionW[i]==50){
+                            kingW[i]=pionW[i];
+    			pionW[i]=0;}
         }
         if(equipe == 'W'){
             if(pionB[i]==1||pionB[i]==2||pionB[i]==3||pionB[i]==4||pionB[i]==5){
@@ -244,6 +244,7 @@ void passage_dame(int pionW[20], int pionB[20],int kingW[20], int kingB[20], cha
         }
 
 	}
+    printf("equipe passage dame: %c\n", equipe );
 }
 //OK
 
@@ -260,16 +261,12 @@ int nb_pion(int pion[20],int king[20]){
 int manger_pion(int pionW[20], int pionB[20],int kingW[20], int kingB[20], int caseD, char equipe){ // verifie si un pion peut en manger un autre
 	int a=0;
 
-    printf(" debug 1B\n" );
     bool VerifPP;
     bool VerifPG;
 	VerifPP =VerifPionPetit(pionW, pionB, kingW, kingB, caseD, equipe);
-    printf(" debug 2B\n" );
 	VerifPG = VerifPionGrand(pionW, pionB, kingW, kingB,caseD,equipe);
-    printf(" debug 3B\n" );
 
 
-    printf(" debug 4B\n" );
 //a=1: le pion peut manger sur la case la plus petite , a=2: le pion peut manger sur la case la plus grande, a=3:le pion peut manger sur les deux case
 // a=0; rien
     if(VerifPP==false||VerifPG==true){

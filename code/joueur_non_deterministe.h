@@ -260,26 +260,25 @@ int deplacement_apres_manger_grand(int pionW[20], int pionB[20], int kingW[20], 
 void Joue_un_coup (int pionW[20], int pionB[20], int kingW[20], int kingB[20], char equipe_IA, char equipe){ // fonction principale, revoie les tableaux de pions
 
 
-    int P_joueur[20];
-    int K_joueur[20];
-    int P_advs[20];
-    int K_advs[20];
+    int P_joueur[20] = {0};
+    int K_joueur[20] = {0};
+    int P_advs[20] = {0};
+    int K_advs[20] = {0};
 
-
-    if(equipe='W'){                     // fonction pour jouer les blancs
-        P_joueur[20] = pionW[20];
-        K_joueur[20] = kingW[20];
-        P_advs[20] = pionB[20];
-        K_advs[20] = kingB[20];
+    for(int i=0; i<20; i++){
+        if(equipe='B'){                     // fonction pour jouer les blancs
+            P_joueur[i] = pionW[i];
+            K_joueur[i] = kingW[i];
+            P_advs[i] = pionB[i];
+            K_advs[i] = kingB[i];
+        }
+        if(equipe='W'){                     // fonction pour jouer les noirs
+            P_joueur[i] = pionB[i];
+            K_joueur[i] = kingB[i];
+            P_advs[i] = pionW[i];
+            K_advs[i] = kingW[i];
+        }
     }
-    if(equipe='B'){                     // fonction pour jouer les noirs
-        P_joueur[20] = pionB[20];
-        K_joueur[20] = kingB[20];
-        P_advs[20] = pionW[20];
-        K_advs[20] = kingW[20];
-    }
-
-printf(" debug 1A\n" );
 
     int poids_des_routes[40]= {0};       // innitialise un tableau de 40, de 0 a 19, le poids des routes des pions, de 20 a 39 le piods des routes des reines
     int deplacement_a_faire[40][2] = {0};    // innitialise le meme tableau qu'avant, mais avec le deplacement le plsu interessant pour chaque pion/reines
@@ -290,36 +289,44 @@ printf(" debug 1A\n" );
 
     for(int i=0; i<20; i++){            // attribue des poids pour les déplacements des pions joueurs
         printf("iteration i = %d \n",i);
-        printf(" debug 2A iteration i = %d\n",i );
 
         printf(" P_joueur[i] %d \n", P_joueur[i] );
 
         if(P_joueur[i]==0){
 
-            i++;
             printf(" poids_des_routes[i] %d \n", poids_des_routes[i] );
             poids_des_routes[i]=0;
         } //saute le pion si =0
         else{
-            printf(" debug 3A\n" );
+
+            if(VerifPionPetit(pionW, pionB, kingW, kingB,P_joueur[i],equipe) == true){
+                deplacement_a_faire[i][1]= P_joueur[i];
+                poids_des_routes[i]=1;
+
+
+
+            }
+            if(VerifPionGrand(pionW, pionB, kingW, kingB,P_joueur[i],equipe) == true){
+                deplacement_a_faire[i][1]= P_joueur[i];
+                poids_des_routes[i]=poids_des_routes[i]+2;
+
+
+
+            }
 
             variableA = P_joueur[i];
             variableB = manger_pion(pionW, pionB, kingW, kingB, variableA, equipe );
 //a=1: le pion peut manger sur la case la plus petite , a=2: le pion peut manger sur la case la plus grande, a=3:le pion peut sur les deux case
 //a=0; rien
-            printf(" debug 4A\n" );
-            if(variableB == 0){
-                poids_des_routes[i]=0;
-            }
+
 
             if(variableB == 3){
                 srand(time(NULL));
                 variableB=rand()%2+1;    //entre 1-2
+
             }
-            printf(" debug 5A\n" );
 
             if(variableB == 1){
-                printf(" debug 6A\n" );
                 variableC= deplacement_apres_manger_petit(pionW, pionB, kingW, kingB, variableA, equipe );
                 if(variableC == 0){
                      printf(" ERREUR JOUEUR NON DETERMINISTE LIGNE 56\n" );
@@ -332,7 +339,6 @@ printf(" debug 1A\n" );
 
                 }
             }
-            printf(" debug 7A\n" );
             if(variableB == 2){
 
                 variableC= deplacement_apres_manger_grand(pionW, pionB, kingW, kingB, variableA, equipe );
@@ -347,10 +353,7 @@ printf(" debug 1A\n" );
 
                 }
             }
-            if(variableB == 0){
-                    deplacement_a_faire[i][1]= 0;
-                    deplacement_a_faire[i][2]= 0;
-            }
+
         }
     }
 
@@ -365,11 +368,14 @@ printf(" debug 1A\n" );
     int variableE=0;    // route avec le plus grand poids
 
     for(int i=0; i<40; i++){
+        printf("route: %d,  poids= %d\n", i, poids_des_routes[i] );
+
         if(poids_des_routes[i] >= variableD){
             variableE=i;
+            variableD = poids_des_routes[i];
         }
     }
-    printf("total poids des routes = %d\n", variableE );
+    printf("route avec le plus grand poids= %d\n", variableE );
 
     if(variableE == 0){  // aucune possibilité de manger
         printf(" debug ALEATOIRE A\n" );
@@ -404,17 +410,18 @@ printf(" debug 1A\n" );
     printf("pion d'arrivée = %d \n \n", deplacement_a_faire[variableE][1]);
 
 
-    if(equipe='W'){                     // fonction pour jouer les blancs
-        pionW[20] = P_joueur[20];
-        kingW[20] = K_joueur[20];
-        pionB[20] = P_advs[20];
-        kingB[20] = K_advs[20];
+    for(int i=0; i++; i<20){
+        if(equipe='B'){                     // fonction pour jouer les blancs
+            pionW[i] = P_joueur[i];
+            kingW[i] = K_joueur[i];
+            pionB[i] = P_advs[i];
+            kingB[i] = K_advs[i];
+        }
+        if(equipe='W'){                     // fonction pour jouer les noirs
+            pionB[i] = P_joueur[i];
+            kingB[i] = K_joueur[i];
+            pionW[i] = P_advs[i];
+            kingW[i] = K_advs[i];
+        }
     }
-    if(equipe='B'){                     // fonction pour jouer les noirs
-        pionB[20] = P_joueur[20];
-        kingB[20] = K_joueur[20];
-        pionW[20] = P_advs[20];
-        kingW[20] = K_advs[20];
-    }
-
 }

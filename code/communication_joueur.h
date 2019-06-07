@@ -79,14 +79,37 @@ void demande_coup(int pionW[20], int pionB[20], int kingW[20], int kingB[20],int
 
         int caseD=0;
         int caseA=0;
+        int variableF = 0;
 
-        while( (caseD <=0 || caseD >= 51) || (caseA <=0 && caseA >= 51) || (caseA==caseD)){
+        while( (caseD <=0 || caseD >= 51) || (caseA <=0 && caseA >= 51) || (caseA==caseD) || variableF == 0 ){
                 printf( " Enter le numero de la case de départ  \n \n" );
                 scanf("%d", &caseD );
 
                 printf( "  Entrez le numero de la case d'arrivée \n \n" );
                 scanf("%d", &caseA );
 
+                variableF = 0;
+
+                for(int i=0;i<20;i++){
+
+
+                        if(pionW[i]==caseD && equipe=='W'){
+                                variableF++;
+                        }
+                        if(kingW[i]==caseD && equipe=='W'){
+                                variableF++;
+                        }
+
+                        if(pionB[i]==caseD && equipe=='B'){
+                                variableF++;
+                        }
+                        if(kingB[i]==caseD && equipe=='B'){
+                                variableF++;
+                        }
+                }
+                if(variableF==0){
+                    printf( "  Case de départ vide \n \n" );
+                }
         }
 
 
