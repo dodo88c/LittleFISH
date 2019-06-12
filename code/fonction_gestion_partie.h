@@ -98,7 +98,7 @@ bool verif_delp_joueur(int pionW[20], int pionB[20], int kingW[20], int kingB[20
 
                 if(variableB == 1){
 
-                    variableC= deplacement_apres_manger_petit(pionW, pionB, kingW, kingB, variableA, equipe );
+                    variableC= deplacement_apres_manger_petit(pionW, pionB, kingW, kingB, variableA, variableC, equipe );
                     if(variableC == 0){
                          printf(" ERREUR verif depl jouer 1\n" );
                     }
@@ -112,7 +112,7 @@ bool verif_delp_joueur(int pionW[20], int pionB[20], int kingW[20], int kingB[20
                 }
                 if(variableB == 2){
 
-                    int variableC= deplacement_apres_manger_grand(pionW, pionB, kingW, kingB, variableA, equipe );
+                    int variableC= deplacement_apres_manger_grand(pionW, pionB, kingW, kingB, variableA, variableC, equipe );
                     if(variableC == 0){
                         printf(" ERREUR verif depl jouer 2 \n" );
                     }

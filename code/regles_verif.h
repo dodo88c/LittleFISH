@@ -124,7 +124,6 @@ bool VerifPionPetit(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 bool VerifPionGrand(int pionW[20], int pionB[20], int kingW[20], int kingB[20] , int caseD, char equipe){ //vérifie la case la plus grande(droite)
 	int a=0;
 	if(equipe=='B'){
-        printf("testB\n" );
 		if (caseD==5||caseD==15||caseD==25||caseD==35||caseD==45||caseD==46||caseD==47||caseD==48||caseD==49||caseD==50){
 			a=1;
 		}
@@ -145,7 +144,6 @@ bool VerifPionGrand(int pionW[20], int pionB[20], int kingW[20], int kingB[20] ,
 
 	}
 	if(equipe=='W'){
-        printf("testW\n" );
 		if (caseD==6||caseD==16||caseD==26||caseD==36||caseD==46||caseD==1||caseD==2||caseD==3||caseD==4||caseD==5){
 			a=1;
 		}
@@ -263,56 +261,53 @@ int manger_pion(int pionW[20], int pionB[20],int kingW[20], int kingB[20], int c
 
     bool VerifPP;
     bool VerifPG;
-	VerifPP =VerifPionPetit(pionW, pionB, kingW, kingB, caseD, equipe);
-	VerifPG = VerifPionGrand(pionW, pionB, kingW, kingB,caseD,equipe);
-
 
 //a=1: le pion peut manger sur la case la plus petite , a=2: le pion peut manger sur la case la plus grande, a=3:le pion peut manger sur les deux case
 // a=0; rien
-    if(VerifPP==false||VerifPG==true){
+
 	  for(int i=0;i<20;i++){
 	    if(caseD%10<=5){
-	    if((equipe=='B')&&((caseD+5)==pionW[i]||(caseD+5)==kingW[i])){
-    		VerifPP = VerifPionPetit(pionW, pionB, kingW, kingB,(caseD+5),equipe);
-    		if(VerifPP==true){a=1;}
-	    }
-	    else if((equipe=='W') && (((caseD+5)==pionB[i])||((caseD+5)==kingB[i]))){
-		VerifPP = VerifPionPetit(pionW, pionB, kingW, kingB,(caseD+5),equipe);
-		if(VerifPP==true){
-		a=1;}
-	    }
+    	    if((equipe=='B')&&((caseD-5)==pionW[i]||(caseD-5)==kingW[i])){
+        		VerifPP = VerifPionPetit(pionW, pionB, kingW, kingB,(caseD-5),equipe);
+        		if(VerifPP==true){a=1;}
+    	    }
+    	    else if((equipe=='W') && (((caseD+5)==pionB[i])||((caseD+5)==kingB[i]))){
+        		VerifPP = VerifPionPetit(pionW, pionB, kingW, kingB,(caseD+5),equipe);
+        		if(VerifPP==true){
+        		a=1;}
+    	    }
 	    }
 	    if(caseD%10>5){
-	    if((equipe=='B')&&((caseD+5)==pionW[i]||(caseD+5)==kingW[i])){
-		VerifPP = VerifPionPetit(pionW, pionB, kingW, kingB,(caseD+5),equipe);
-		if(VerifPP==true){
-		a=1;}
-	    }
-	    else if((equipe=='W') &&((caseD+5)==pionB[i]||(caseD+5)==kingB[i])){
-		VerifPP = VerifPionPetit(pionW, pionB, kingW, kingB,(caseD+5),equipe);
-		if(VerifPP==true){
-		a=1;}
-	    }
+    	    if((equipe=='B')&&((caseD-6)==pionW[i]||(caseD-6)==kingW[i])){
+        		VerifPP = VerifPionPetit(pionW, pionB, kingW, kingB,(caseD-6),equipe);
+        		if(VerifPP==true){
+        		a=1;}
+    	    }
+    	    else if((equipe=='W') &&((caseD+4)==pionB[i]||(caseD+4)==kingB[i])){
+        		VerifPP = VerifPionPetit(pionW, pionB, kingW, kingB,(caseD+4),equipe);
+        		if(VerifPP==true){
+        		a=1;}
+    	    }
   	    }
 	  }
-	}
-	else if(VerifPP==true||VerifPG==false){
+
+
 	  for(int i=0;i<20;i++){
 	    if(caseD%10<=5){
-	    if((equipe=='B')&&((caseD+5)==pionW[i]||(caseD+5)==kingW[i])){
-		VerifPG = VerifPionGrand(pionW, pionB, kingW, kingB,(caseD+5), equipe);
+	    if((equipe=='B')&&((caseD-4)==pionW[i]||(caseD-4)==kingW[i])){
+		VerifPG = VerifPionGrand(pionW, pionB, kingW, kingB,(caseD-4), equipe);
 		if(VerifPG==true){
 		a=2;}
 	    }
-	    else if((equipe=='W')&&((caseD+5)==pionB[i]||(caseD+5)==kingB[i])){
-		VerifPG = VerifPionGrand(pionW, pionB, kingW, kingB,(caseD+5), equipe);
+	    else if((equipe=='W')&&((caseD+6)==pionB[i]||(caseD+6)==kingB[i])){
+		VerifPG = VerifPionGrand(pionW, pionB, kingW, kingB,(caseD+6), equipe);
 		if(VerifPG==true){
 		a=2;}
 	    }
 	    }
 	    if(caseD%10>5){
-    	    if((equipe=='B')&&((caseD+5)==pionW[i]||(caseD+5)==kingW[i])){
-        		VerifPG = VerifPionGrand(pionW, pionB, kingW, kingB,(caseD+5), equipe);
+    	    if((equipe=='B')&&((caseD-5)==pionW[i]||(caseD-5)==kingW[i])){
+        		VerifPG = VerifPionGrand(pionW, pionB, kingW, kingB,(caseD-5), equipe);
         		if(VerifPG==true){ a=2;}
     	    }
     	    else if((equipe=='W') && ((caseD+5)==pionB[i]||(caseD+5)==kingB[i])){
@@ -321,9 +316,12 @@ int manger_pion(int pionW[20], int pionB[20],int kingW[20], int kingB[20], int c
     	    }
   	    }
 	  }
-	}
-	else if(VerifPP==false&&VerifPG==false){
+
+
+
+
 	 for(int i=0;i<20;i++){
+
 	    if(caseD%10<=5){
 	    if(a=3){}                                                                  // cas a=3 pas fini
 	    else if((equipe=='B')&&((caseD+5)==pionW[i]||(caseD+5)==kingW[i])){
@@ -347,6 +345,7 @@ int manger_pion(int pionW[20], int pionB[20],int kingW[20], int kingB[20], int c
 		a=2;}
 	    }
 	    }
+
 	    if(caseD%10>5){
 	    if((equipe=='B')&&((caseD+5)==pionW[i]||(caseD+5)==kingW[i])&&((caseD+5)==pionW[i]||(caseD+5)==kingW[i])){
 		a=3;
@@ -376,7 +375,7 @@ int manger_pion(int pionW[20], int pionB[20],int kingW[20], int kingB[20], int c
 	    }
   	    }
 	  }
-	}
+
 
 	return a;
 }

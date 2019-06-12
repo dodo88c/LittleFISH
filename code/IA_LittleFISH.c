@@ -70,9 +70,9 @@ int main(){
 
 
 
-		Joue_un_coup(pionW, pionB, kingW, kingB, equipe_IA, equipe);
+		Joue_un_coup(pionW, pionB, kingW, kingB, equipe_IA, equipe_IA);
 		tour++;
-		passage_dame(pionW, pionB, kingW, kingB, equipe);
+		passage_dame(pionW, pionB, kingW, kingB, equipe_IA);
 		affichage(pionW, pionB, kingW, kingB, equipe);
 		//savegame(pionW, pionB, kingW, kingB, tour);
 	}
@@ -97,9 +97,9 @@ int main(){
 
 		if(NB_piece_IA!=0){
 
-			Joue_un_coup(pionW, pionB, kingW, kingB, equipe_IA,equipe);
+			Joue_un_coup(pionW, pionB, kingW, kingB, equipe_IA,equipe_IA);
 			tour++;
-			passage_dame(pionW, pionB, kingW, kingB, equipe);
+			passage_dame(pionW, pionB, kingW, kingB, equipe_IA);
 			affichage(pionW, pionB, kingW, kingB, equipe);
 			//savegame(pionW, pionB, kingW, kingB, tour);
 		}
