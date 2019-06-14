@@ -19,8 +19,8 @@ int deplacement_apres_manger_petit(int pionW[20], int pionB[20], int kingW[20], 
     int caseA=0;
     caseAA=0;
 
-    if(Joueur=='B'){
-        if (caseD==6||caseD==16||caseD==26||caseD==36||caseD==46||caseD==47||caseD==48||caseD==49||caseD==50){
+    if(Joueur=='W'){
+        if (caseD==6||caseD==16||caseD==26||caseD==36||caseD==46||caseD==1||caseD==2||caseD==3||caseD==4||caseD==5){
             a=4; // 4 = ERREUR
             printf(" LA CASES OU se trouve le pion avctuel EST au bord DU PLATEAU\n");
         }
@@ -29,37 +29,37 @@ int deplacement_apres_manger_petit(int pionW[20], int pionB[20], int kingW[20], 
         if(a==0){
             for(int i=0;i<20;i++){
                 if(caseD%10<=5){
-                if(caseD+5==pionW[i] || caseD+5==pionB[i]||caseD+5==kingW[i] || caseD+5==kingB[i]){
+                if(caseD-5==pionW[i] || caseD-5==pionB[i]||caseD-5==kingW[i] || caseD-5==kingB[i]){
                     a=1; //case ocupée
-                    caseA = caseD+5;
+                    caseA = caseD-5;
                 }
                 }
                 if(caseD%10>5){
-                if(caseD+4==pionW[i] || caseD+4==pionB[i]||caseD+4==kingW[i] || caseD+4==kingB[i]){
+                if(caseD-6==pionW[i] || caseD-6==pionB[i]||caseD-6==kingW[i] || caseD-6==kingB[i]){
                     a=1; //case ocupée
-                    caseA = caseD+4;
+                    caseA = caseD-6;
                 }
                 }
             }
         }
     }
 
-    if(Joueur=='W'){
-        if (caseD==5||caseD==15||caseD==25||caseD==35||caseD==45||caseD==1||caseD==2||caseD==3||caseD==4){
+    if(Joueur=='B'){
+        if (caseD==6||caseD==16||caseD==26||caseD==36||caseD==46||caseD==47||caseD==48||caseD==49||caseD==50){
             a=4;
         }
         if(a==0){
             for(int i=0;i<20;i++){
                 if(caseD%10<=5){
-                if(caseD-5==pionW[i] || caseD-5==pionB[i]||caseD-5==kingW[i] || caseD-5==kingB[i]){
+                if(caseD+5==pionW[i] || caseD+5==pionB[i]||caseD+5==kingW[i] || caseD+5==kingB[i]){
                     a=2; //case ocupée
-                    caseA = caseD-5;
+                    caseA = caseD+5;
                 }
                 }
                 if(caseD%10>5){
-                if(caseD-6==pionW[i] || caseD-6==pionB[i]||caseD-6==kingW[i] || caseD-6==kingB[i]){
+                if(caseD+4==pionW[i] || caseD+4==pionB[i]||caseD+4==kingW[i] || caseD+4==kingB[i]){
                     a=2; //case ocupée
-                    caseA = caseD-6;
+                    caseA = caseD+4;
                 }
                 }
             }
@@ -71,7 +71,7 @@ int deplacement_apres_manger_petit(int pionW[20], int pionB[20], int kingW[20], 
     if(a==1){   //determine la case apres le pion a manger
 
 
-            if (caseA==6||caseA==16||caseA==26||caseA==36||caseA==46||caseA==47||caseA==48||caseA==49||caseA==50){
+            if (caseA==6||caseA==16||caseA==26||caseA==36||caseA==46||caseA==1||caseA==2||caseA==3||caseA==4||caseA==5){
                 a=5; // 5 = ERREUR apres manger_pion
                 printf(" LA CASES APRES LE MANGER DE PION EST EN DEHORS DU PLATEAU\n");
             }
@@ -80,21 +80,21 @@ int deplacement_apres_manger_petit(int pionW[20], int pionB[20], int kingW[20], 
             if(a==1){
                 for(int i=0;i<20;i++){
                     if(caseA%10<=5){
-                    if(caseA+5==pionW[i] || caseA+5==pionB[i]||caseA+5==kingW[i] || caseA+5==kingB[i]){
+                    if(caseA-5==pionW[i] || caseA-5==pionB[i]||caseA-5==kingW[i] || caseA-5==kingB[i]){
                         a=7; //case ocupée
 
                     }
                     else{
-                        caseAA = caseA+5;
+                        caseAA = caseA-5;
                     }
                     }
                     if(caseA%10>5){
-                    if(caseA+4==pionW[i] || caseA+4==pionB[i]||caseA+4==kingW[i] || caseA+4==kingB[i]){
+                    if(caseA-6==pionW[i] || caseA-6==pionB[i]||caseA-6==kingW[i] || caseA-6==kingB[i]){
                         a=7; //case ocupée
 
                     }
                     else{
-                        caseAA = caseA+4;
+                        caseAA = caseA-6;
                     }
                     }
 
@@ -105,26 +105,26 @@ int deplacement_apres_manger_petit(int pionW[20], int pionB[20], int kingW[20], 
 
     if(a==2){
 
-            if (caseA==5||caseA==15||caseA==25||caseA==35||caseA==45||caseA==1||caseA==2||caseA==3||caseA==4){
+            if (caseA==6||caseA==16||caseA==26||caseA==36||caseA==46||caseA==47||caseA==48||caseA==49||caseA==50){
                 a=5;
                 printf(" LA CASES APRES LE MANGER DE PION EST EN DEHORS DU PLATEAU\n");
             }
             if(a==2){
                 for(int i=0;i<20;i++){
                     if(caseA%10<=5){
-                    if(caseA-5==pionW[i] || caseA-5==pionB[i]||caseA-5==kingW[i] || caseA-5==kingB[i]){
+                    if(caseA+5==pionW[i] || caseA+5==pionB[i]||caseA+5==kingW[i] || caseA+5==kingB[i]){
                         a=2; //case ocupée
                     }
                     else{
-                        caseAA = caseA-5;
+                        caseAA = caseA+5;
                     }
                     }
                     if(caseA%10>5){
-                    if(caseA-6==pionW[i] || caseA-6==pionB[i]||caseA-6==kingW[i] || caseA-6==kingB[i]){
+                    if(caseA+4==pionW[i] || caseA+4==pionB[i]||caseA+4==kingW[i] || caseA+4==kingB[i]){
                         a=2; //case ocupée
                     }
                     else{
-                        caseAA = caseA-6;
+                        caseAA = caseA+4;
                     }
                     }
                 }
@@ -168,7 +168,7 @@ int deplacement_apres_manger_grand(int pionW[20], int pionB[20], int kingW[20], 
         }
     }
     if(Joueur=='W'){
-        if (caseD==6||caseD==16||caseD==26||caseD==36||caseD==46||caseD==1||caseD==2||caseD==3||caseD==4||caseD==5){
+        if (caseD==5||caseD==15||caseD==25||caseD==35||caseD==45||caseD==1||caseD==2||caseD==3||caseD==4||caseD==5){
             a=4;
         }
         if(a==0){
@@ -226,7 +226,7 @@ int deplacement_apres_manger_grand(int pionW[20], int pionB[20], int kingW[20], 
     }
     if(a==2){
 
-            if (caseD==6||caseD==16||caseD==26||caseD==36||caseD==46||caseD==1||caseD==2||caseD==3||caseD==4||caseD==5){
+            if (caseD==5||caseD==15||caseD==25||caseD==35||caseD==45||caseD==1||caseD==2||caseD==3||caseD==4||caseD==5){
                 a=5;
                 printf(" LA CASES APRES LE MANGER DE PION EST EN DEHORS DU PLATEAU\n");
             }
@@ -295,6 +295,7 @@ void Joue_un_coup (int pionW[20], int pionB[20], int kingW[20], int kingB[20], c
     int variableA=0;
     int variableB=0;
     int variableC=0;
+    int pion_mange=0;
 
     for(int i=0; i<20; i++){            // attribue des poids pour les déplacements des pions joueurs
         printf("iteration i = %d \n",i);
@@ -313,20 +314,20 @@ void Joue_un_coup (int pionW[20], int pionB[20], int kingW[20], int kingB[20], c
 
                 if(equipe=='B'){
     				if(P_joueur[i]%10<=5){
-                        deplacement_a_faire[i][1]= P_joueur[i]-5;
+                        deplacement_a_faire[i][1]= P_joueur[i]+5;
 
     				}
     				if(P_joueur[i]%10>5){
-                        deplacement_a_faire[i][1]= P_joueur[i]-6;
+                        deplacement_a_faire[i][1]= P_joueur[i]+4;
 
     				}
             	}
             	if(equipe=='W'){
     				if(P_joueur[i]%10<=5){
-                        deplacement_a_faire[i][1]= P_joueur[i]+5;
+                        deplacement_a_faire[i][1]= P_joueur[i]-5;
     				}
     				if(P_joueur[i]%10>5){
-                        deplacement_a_faire[i][1]= P_joueur[i]+4;
+                        deplacement_a_faire[i][1]= P_joueur[i]-6;
     				}
             	}
 
@@ -338,20 +339,20 @@ void Joue_un_coup (int pionW[20], int pionB[20], int kingW[20], int kingB[20], c
 
                 if(equipe=='B'){
     				if(P_joueur[i]%10<=5){
-                        deplacement_a_faire[i][1]= P_joueur[i]-4;
+                        deplacement_a_faire[i][1]= P_joueur[i]+6;
 
     				}
     				if(P_joueur[i]%10>5){
-                        deplacement_a_faire[i][1]= P_joueur[i]-5;
+                        deplacement_a_faire[i][1]= P_joueur[i]=5;
 
     				}
             	}
             	if(equipe=='W'){
     				if(P_joueur[i]%10<=5){
-                        deplacement_a_faire[i][1]= P_joueur[i]+6;
+                        deplacement_a_faire[i][1]= P_joueur[i]-4;
     				}
     				if(P_joueur[i]%10>5){
-                        deplacement_a_faire[i][1]= P_joueur[i]+5;
+                        deplacement_a_faire[i][1]= P_joueur[i]-5;
     				}
             	}
                 poids_des_routes[i]=poids_des_routes[i]+2;
@@ -378,8 +379,26 @@ void Joue_un_coup (int pionW[20], int pionB[20], int kingW[20], int kingB[20], c
                 else{
 
                     poids_des_routes[i]=10;
-                    deplacement_a_faire[i][1]= P_joueur[i];
-                    deplacement_a_faire[i][2]= variableC;
+                    deplacement_a_faire[i][0]= P_joueur[i];
+                    deplacement_a_faire[i][1]= variableC;
+                    if(equipe=='B'){
+        				if(P_joueur[i]%10<=5){
+                            pion_mange= P_joueur[i]+5;
+
+        				}
+        				if(P_joueur[i]%10>5){
+                            pion_mange= P_joueur[i]+4;
+
+        				}
+                	}
+                	if(equipe=='W'){
+        				if(P_joueur[i]%10<=5){
+                            pion_mange= P_joueur[i]-5;
+        				}
+        				if(P_joueur[i]%10>5){
+                            pion_mange= P_joueur[i]-6;
+        				}
+                	}
 
                 }
             }
@@ -392,9 +411,26 @@ void Joue_un_coup (int pionW[20], int pionB[20], int kingW[20], int kingB[20], c
                 else{
 
                     poids_des_routes[i]=15;
-                    deplacement_a_faire[i][1]= P_joueur[i];
-                    deplacement_a_faire[i][2]= variableC;
+                    deplacement_a_faire[i][0]= P_joueur[i];
+                    deplacement_a_faire[i][1]= variableC;
+                    if(equipe=='B'){
+        				if(P_joueur[i]%10<=5){
+                            pion_mange= P_joueur[i]+6;
 
+        				}
+        				if(P_joueur[i]%10>5){
+                            pion_mange= P_joueur[i]=5;
+
+        				}
+                	}
+                	if(equipe=='W'){
+        				if(P_joueur[i]%10<=5){
+                            pion_mange= P_joueur[i]-4;
+        				}
+        				if(P_joueur[i]%10>5){
+                            pion_mange= P_joueur[i]-5;
+        				}
+                	}
                 }
             }
 
@@ -412,7 +448,7 @@ void Joue_un_coup (int pionW[20], int pionB[20], int kingW[20], int kingB[20], c
     int variableE=0;    // route avec le plus grand poids
 
     for(int i=0; i<40; i++){
-        printf("route: %d,  poids= %d, pion de depart = %d, pion d'arrivée = %d \n", i, poids_des_routes[i],deplacement_a_faire[i][0],deplacement_a_faire[i][0] );
+        printf("route: %d,  poids= %d, pion de depart = %d, pion d'arrivée = %d \n", i, poids_des_routes[i],deplacement_a_faire[i][0],deplacement_a_faire[i][1] );
 
         if(poids_des_routes[i] >= variableD){
             variableE=i;
@@ -435,14 +471,22 @@ void Joue_un_coup (int pionW[20], int pionB[20], int kingW[20], int kingB[20], c
         }while (VerifPionPetit(pionW, pionB, kingW, kingB, nbgen, equipe ) != false );
 
         poids_des_routes[nbgen]=2;
-        deplacement_a_faire[nbgen][1]= P_joueur[nbgen];
-        deplacement_a_faire[nbgen][2]= variableC;
+        deplacement_a_faire[nbgen][0]= P_joueur[nbgen];
+        deplacement_a_faire[nbgen][1]= variableC;
     }
 
 
     if(variableE<20){
         P_joueur[variableE] = deplacement_a_faire[variableE][1];
         printf("pjoueur modifié \n");
+        if(variableD>5){
+            printf("un pion advs va disparaitre \n");
+            for(int i=0; i<40; i++){
+                if(P_advs[i]==pion_mange){
+                    P_advs[i]=0;
+                }
+                }
+        }
 
     }
     else{

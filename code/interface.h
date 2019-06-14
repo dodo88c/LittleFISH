@@ -36,7 +36,7 @@ void affichage(int pionW[20], int pionB[20], int kingW[20], int kingB[20], char 
             		}
 	}
 
-	if(equipe == 'B'){
+	if(equipe == 'W'){
 
 			printf("+-------+-------+-------+-------+ IA LittleFISH +-------+-------+-------+-------+ \n");
 			printf("\n  \n" );
@@ -86,7 +86,7 @@ void affichage(int pionW[20], int pionB[20], int kingW[20], int kingB[20], char 
 
 	}
 
-	if(equipe == 'W'){
+	if(equipe == 'B'){
 			printf("+-------+-------+-------+-------+ IA LittleFISH +-------+-------+-------+-------+ \n");
 			printf("\n  \n" );
 			printf("+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+ \n");

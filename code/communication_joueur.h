@@ -82,6 +82,10 @@ void demande_coup(int pionW[20], int pionB[20], int kingW[20], int kingB[20],int
         int variableF = 0;
 
         while( (caseD <=0 || caseD >= 51) || (caseA <=0 && caseA >= 51) || (caseA==caseD) || variableF == 0 ){
+
+                caseD=0;
+                caseA=0;
+
                 printf( " Enter le numero de la case de départ  \n \n" );
                 scanf("%d", &caseD );
 

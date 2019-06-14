@@ -38,12 +38,12 @@ bool  petit_ou_grand(int pionW[20], int pionB[20],int kingW[20], int kingB[20], 
 
     if(equipe=='B'){
         if(caseD%10<=5){
-            if( (caseD-5)== caseA){
+            if( (caseD+5)== caseA){
                 return true;
             }
         }
         else if(caseD%10>5){
-            if((caseD-6)==caseA){
+            if((caseD+4)==caseA){
                 return true;
             }
         }
@@ -54,12 +54,12 @@ bool  petit_ou_grand(int pionW[20], int pionB[20],int kingW[20], int kingB[20], 
     if(equipe=='W'){
 
         if(caseD%10<=5){
-            if((caseD+5)==caseA){
+            if((caseD-5)==caseA){
                 return true;
             }
         }
         else if(caseD%10>5){
-            if((caseD+4)==caseA){
+            if((caseD-6)==caseA){
                 return true;
             }
         }
